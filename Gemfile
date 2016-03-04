@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+# Gems for styling
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
