@@ -2,13 +2,52 @@
 <html>
 <head>
   <title>ProductivityApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-sm-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title">
+            <a href="#" class="site_title"><i class="fa fa-cloud"></i> <span>Productivity App</span></a>
+          </div>
+          <hr>
+          <div class="clearfix"></div>
 
-<%= yield %>
+          <!-- sidebar menu -->
+          <%= render 'shared/sidebar_menu' %>
+          <!-- end sidebar menu -->
+          <!-- /menu footer buttons -->
+          <%= render 'shared/footer_buttons' %>
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <%= render 'shared/top_navigation' %>
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+
+        <%= yield %>
+
+        <!-- footer content -->
+        <%= render 'shared/footer' %>
+        <!-- /footer content -->
+
+      </div>
+      <!-- /page content -->
+
+    </div>
+  </div>
 
 </body>
 </html>
