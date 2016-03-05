@@ -5,6 +5,25 @@
   <%= stylesheet_link_tag    'landing', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script>
+    $(document).ready(function(){
+      $(document).on('click','.signup-tab',function(e){
+        e.preventDefault();
+          $('#signup-taba').tab('show');
+      });
+
+      $(document).on('click','.signin-tab',function(e){
+          e.preventDefault();
+          $('#signin-taba').tab('show');
+      });
+
+      $(document).on('click','.forgetpass-tab',function(e){
+        e.preventDefault();
+          $('#forgetpass-taba').tab('show');
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -37,7 +56,7 @@
             </a>
           </li>
           <li>
-            <a href="#" data-toggle="modal" data-target="#signIn">
+            <a href="#" data-toggle="modal" data-target="#authentication_modal" class="signin-tab">
               <i class="fa fa-sign-in"></i>
               Sign in
             </a>
@@ -64,15 +83,9 @@
               <h2>Awesome landing page.</h2>
               <h5>Be amazed by the best looking bootstrap landing page on the web! Your new app deserves an amazing page to show all of its features. Clear visual, light colours and beautifully aligned elements!</h5>
               <hr>
-              <h5>REGISTRATION:</h5>
             </div>
-            <form>
-              <fieldset class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="your_email@example.com">
-              </fieldset>
-            </form>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary btn-lg">SIGN UP</button>
+              <button type="submit" class="btn btn-primary btn-lg signup-tab" data-toggle="modal" data-target="#authentication_modal">SIGN UP</button>
             </div>
           </div>
         </div>
@@ -149,31 +162,77 @@
 
   <!-- Modal windows -->
   <!-- Sign in Modal -->
-  <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">SIGN IN FORM</h4>
-          <small>Please fill in your email and password</small>
-        </div>
+<div class="modal fade" id="authentication_modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content login-modal">
         <div class="modal-body">
-           <form>
-            <fieldset class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-            </fieldset>
-            <fieldset class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </fieldset>
-          </form>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div role="tabpanel" class="login-tab">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a id="signin-taba" href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In</a></li>
+            <li role="presentation"><a id="signup-taba" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
+            <li role="presentation"><a id="forgotpass-taba" href="#forgot_password" aria-controls="forgot_password" role="tab" data-toggle="tab">Forgot Password</a></li>
+          </ul>
+          <br>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+              <div class="clearfix"></div>
+              <form>
+                <div class="form-group">
+                  <label>Email:</label>
+                  <input class="form-control"></input>
+                </div>
+                <div class="form-group">
+                  <label>Password:</label>
+                  <input class="form-control"></input>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-primary btn-lg">Submit</button>
+                </div>
+              </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+              <div class="clearfix"></div>
+              <form>
+                <div class="form-group">
+                  <label>Name:</label>
+                  <input class="form-control"></input>
+                </div>
+                <div class="form-group">
+                  <label>Email:</label>
+                  <input class="form-control"></input>
+                </div>
+                <div class="form-group">
+                  <label>Password:</label>
+                  <input class="form-control"></input>
+                </div>
+                <div class="form-group">
+                  <label>Password confirmation:</label>
+                  <input class="form-control"></input>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-primary btn-lg">Submit</button>
+                </div>
+              </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="forgot_password">
+                <div class="clearfix"></div>
+                <form>
+                  <div class="form-group">
+                    <label>Email:</label>
+                    <input class="form-control"></input>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn btn-primary btn-lg">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-lg">Sign in</button>
-        </div>
-      </div>
-    </div>
+     </div>
   </div>
 </div>
 
