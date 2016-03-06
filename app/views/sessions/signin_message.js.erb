@@ -1,0 +1,4 @@
+$('#signin_errors_message').show();
+$('#signin-email').val('');
+$('#signin-pass').val('');
+$('#signin_errors_message').html("<%= escape_javascript(render :partial => 'message', :locals => { :flash => flash }) %>");
