@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
   root 'landing#index'
 
-  get '/dashboard' => 'dashboard#index'
+  get 'dashboard' => 'dashboard#index'
 
   # New user registration
   post 'users' => 'sessions#sign_up'
 
-  # Sessions
+  # User sessions
   post 'sessions' => 'sessions#sign_in'
   delete 'session' => 'sessions#sign_out'
 
