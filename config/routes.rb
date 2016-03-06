@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :app do
     get 'dashboard' => 'dashboard#index'
+    resources :users, only: [:edit, :update, :destroy]
   end
 
   # *patch match anything which was not found in routes list and redirects to root
