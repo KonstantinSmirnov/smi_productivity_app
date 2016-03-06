@@ -1,4 +1,6 @@
 class App::UsersController < AppController
+  before_action :edit_rights?
+
   def edit
     @user = User.find(params[:id])
   end
@@ -19,4 +21,9 @@ class App::UsersController < AppController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
+
+  def edit_rights?
+    @user = User.find(params[:id])
+    redirect_to(app_dashboard_path) unless current_user == @user
+end
 end

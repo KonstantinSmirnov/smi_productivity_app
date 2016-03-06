@@ -65,7 +65,7 @@ a:focus {
 .site_title:focus {
   text-decoration: none;
   color: #fff;
-  cursor: default;
+  cursor: pointer;
 }
 .nav_menu {
   float: left;

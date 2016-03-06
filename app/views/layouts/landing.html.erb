@@ -37,8 +37,14 @@
           <span class="icon-bar bar2"></span>
           <span class="icon-bar bar3"></span>
         </button>
-        <%= link_to root_path, class: 'navbar-brand' do %>
-          <i class="fa fa-check-square-o"></i> Todo App
+        <% if !current_user %>
+          <%= link_to root_path, class: 'navbar-brand' do %>
+            <i class="fa fa-check-square-o"></i> Todo App
+          <% end %>
+        <% else %>
+          <%= link_to app_dashboard_path, class: 'navbar-brand' do %>
+            <i class="fa fa-check-square-o"></i> Todo App
+          <% end %>
         <% end %>
       </div>
       <div class="collapse navbar-collapse" id="example">
