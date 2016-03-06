@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def not_authenticated
-    flash[:danger] = "First log in to view this page."
+    flash[:danger] = "First sign in to view this page."
     redirect_to root_path
   end
 end
