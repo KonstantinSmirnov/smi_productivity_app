@@ -421,7 +421,7 @@ a:focus, a:active {
 
 /* Modal window */
 .landing-page .modal {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 .landing-page .modal .modal-header {
   font-size: 24px;

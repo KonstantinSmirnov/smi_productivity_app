@@ -1,0 +1,6 @@
+$('#signup_errors_message').show();
+$('#signup-name').val('');
+$('#signup-email').val('');
+$('#signup-pass').val('');
+$('#signup-passconf').val('');
+$('#signup_errors_message').html("<%= escape_javascript(render :partial => 'message', :locals => { :flash => flash }) %>");

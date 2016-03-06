@@ -1,0 +1,2 @@
+$('#signup_errors_message').show();
+$('#signup_errors_message').html("<%= escape_javascript(render :partial => 'shared/errors', :locals => { :object => @user }) %>");

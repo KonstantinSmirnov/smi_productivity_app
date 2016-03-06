@@ -48,3 +48,6 @@ end
 # Gems for styling
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+
+# Users authentication
+gem 'sorcery'
