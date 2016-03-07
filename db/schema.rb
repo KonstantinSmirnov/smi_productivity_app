@@ -14,10 +14,14 @@
 ActiveRecord::Schema.define(version: 20160306090124) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",            null: false
+    t.string   "email",               null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -51,3 +51,6 @@ gem 'font-awesome-rails'
 
 # Users authentication
 gem 'sorcery'
+
+# Users avatars and files
+gem 'paperclip'

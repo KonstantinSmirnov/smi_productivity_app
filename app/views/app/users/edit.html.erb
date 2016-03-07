@@ -28,6 +28,16 @@
               </div>
             </div>
             <div class="form-group">
+              <div class="col-xs-3">
+                <%= f.label :avatar, class: 'control-label' %>
+              </div>
+              <div class="col-xs-9">
+                <%= f.file_field :avatar, class: 'form-control' %>
+                <br>
+                <%= image_tag(@user.avatar) %>
+              </div>
+            </div>
+            <div class="form-group">
               <div class="col-xs-offset-3 col-xs-9">
                 <%= f.submit 'Update', class: 'btn btn-primary' %>
               </div>

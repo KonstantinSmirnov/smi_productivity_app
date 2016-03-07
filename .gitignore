@@ -21,3 +21,6 @@
 
 #database
 database.yml
+
+# user images
+public/system/

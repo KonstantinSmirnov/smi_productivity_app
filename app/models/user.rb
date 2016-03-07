@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, unless: :skip_password
   validates :password, confirmation: true
 
+  has_attached_file :avatar, :styles => { :normal => "96x96#" },
+                  :default_style => :normal,
+                  :default_url => 'avatar_default.png'
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
 

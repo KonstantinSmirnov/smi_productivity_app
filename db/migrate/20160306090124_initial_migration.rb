@@ -7,6 +7,7 @@ class InitialMigration < ActiveRecord::Migration
       t.string :salt
       # Additional fields
       t.string :name
+      t.attachment :avatar
 
       t.timestamps
     end

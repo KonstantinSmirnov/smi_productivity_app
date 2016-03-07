@@ -4,7 +4,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="">
           <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="images/img.jpg" alt=""> <%= current_user.name %>
+            <%= image_tag(current_user.avatar) %> <%= current_user.name %>
             <span class="fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu pull-right">
