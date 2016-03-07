@@ -24,6 +24,7 @@ class App::UsersController < AppController
     @user = User.find(params[:id])
 
     respond_to do |format|
+    if User.authenticate(@user.email, params[:user][:old_password])
       if params[:user][:password].blank? == true
         flash[:warning] = "You have not provided any new password."
         format.html { render 'edit' }
@@ -36,6 +37,10 @@ class App::UsersController < AppController
           format.html { render 'edit' }
         end
       end
+    else
+      flash[:warning] = "You entered a wrong password or mistyped."
+      format.html { render 'edit' }
+    end
     end
   end
 
