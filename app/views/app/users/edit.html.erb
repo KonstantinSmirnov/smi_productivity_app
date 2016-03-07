@@ -8,84 +8,71 @@
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        <!-- Header -->
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="pill" href="#user">User data</a></li>
-          <li><a data-toggle="pill" href="#pass">Change password</a></li>
-          <li><a data-toggle="pill" href="#remove">Delete account</a></li>
-        </ul>
-        <br>
-        <div class="tab-content">
-          <!-- Content 1 -->
-          <div id="user" class="tab-pane in active">
-            <div class="col-xs-6 col-xs-offset-3">
-              <%= form_for [:app, @user], :url => { :action => "update_user" }, :html => {:class => "form-horizontal center"} do |f| %>
-                <div class="form-group">
-                  <div class="col-xs-3">
-                    <%= f.label :name, class: 'control-label' %>
-                  </div>
-                  <div class="col-xs-9">
-                    <%= f.text_field :name, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-xs-3">
-                    <%= f.label :email, class: 'control-label' %>
-                  </div>
-                  <div class="col-xs-9">
-                    <%= f.email_field :email, class: 'form-control', disabled: true %>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-xs-offset-3 col-xs-9">
-                    <%= f.submit 'Update', class: 'btn btn-primary' %>
-                  </div>
-                </div>
-              <% end %>
+        <div class="col-xs-6 col-xs-offset-3">
+          <h3>Change details</h3>
+          <%= form_for [:app, @user], :url => { :action => "update_user" }, :html => {:class => "form-horizontal center"} do |f| %>
+            <div class="form-group">
+              <div class="col-xs-3">
+                <%= f.label :name, class: 'control-label' %>
+              </div>
+              <div class="col-xs-9">
+                <%= f.text_field :name, class: 'form-control' %>
+              </div>
             </div>
-          </div>
-          <!-- Content 2 -->
-          <div id="pass" class="tab-pane fade">
+            <div class="form-group">
+              <div class="col-xs-3">
+                <%= f.label :email, class: 'control-label' %>
+              </div>
+              <div class="col-xs-9">
+                <%= f.email_field :email, class: 'form-control', disabled: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-offset-3 col-xs-9">
+                <%= f.submit 'Update', class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+          <hr>
+
+          <h3>Change password</h3>
           <p>If you wish to change your password, enter new password here twice.</p>
-          <div class="col-xs-6 col-xs-offset-3">
-            <%= form_for [:app, @user], :url => { :action => "update_password" }, :html => {:class => "form-horizontal center"} do |f| %>
-              <div class="form-group">
-                <div class="col-xs-3">
-                  <%= f.label :password, class: 'control-label' %>
-                </div>
-                <div class="col-xs-9">
-                  <%= f.password_field :password, class: 'form-control' %>
-                </div>
+          <%= form_for [:app, @user], :url => app_update_user_password_path, :html => {:class => "form-horizontal center"} do |f| %>
+            <div class="form-group">
+              <div class="col-xs-3">
+                <%= f.label :password, class: 'control-label' %>
               </div>
-              <div class="form-group">
-                <div class="col-xs-3">
-                  <%= f.label :password_confirmation, "Repeat", class: 'control-label' %>
-                </div>
-                <div class="col-xs-9">
-                  <%= f.password_field :password_confirmation, class: 'form-control' %>
-                </div>
+              <div class="col-xs-9">
+                <%= f.password_field :password, class: 'form-control' %>
               </div>
-              <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-9">
-                  <%= f.submit 'Update password', class: 'btn btn-primary' %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          </div>
-          <!-- Content 3 -->
-          <div id="remove" class="tab-pane fade">
-            <p>Please take into account that after you will press the button 'Delete', your account will be deleted permanently!</p>
-            <div class="col-xs-6 col-xs-offset-3">
-              <form class="form-horizontal center">
-                <div class="form-group">
-                  <div class="col-xs-offset-3 col-xs-9">
-                    <a class="btn btn-danger" data-toggle="modal" data-target="#delete_user_modal">Delete account</a>
-                  </div>
-                </div>
-              </form>
             </div>
-          </div>
+            <div class="form-group">
+              <div class="col-xs-3">
+                <%= f.label :password_confirmation, "Repeat", class: 'control-label' %>
+              </div>
+              <div class="col-xs-9">
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-offset-3 col-xs-9">
+                <%= f.submit 'Update password', class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+          <hr>
+
+          <h3>Delete account</h3>
+          <p>After you will press the button 'Delete', your account will be deleted permanently!</p>
+
+          <form class="form-horizontal center">
+            <div class="form-group">
+              <div class="col-xs-offset-3 col-xs-9">
+                <a class="btn btn-danger" data-toggle="modal" data-target="#delete_user_modal">Delete account</a>
+              </div>
+            </div>
+          </form>
+
         </div>
       </div>
     </div>

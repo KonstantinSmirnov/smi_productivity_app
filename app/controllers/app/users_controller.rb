@@ -11,7 +11,7 @@ class App::UsersController < AppController
 
     respond_to do |format|
       if @user.update_attributes(user_params)
-        flash[:success] = "User details were successfully updated"
+        flash[:success] = "your details were successfully updated"
         format.html { redirect_to app_edit_user_path(current_user) }
       else
         flash[:warning] = "You have provided incorrect data"
@@ -24,12 +24,17 @@ class App::UsersController < AppController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(user_params)
-        flash[:success] = "User details were successfully updated"
-        format.html { redirect_to app_edit_user_path(current_user) }
-      else
-        flash[:warning] = "You have provided incorrect data"
+      if params[:user][:password].blank? == true
+        flash[:warning] = "You have not provided any new password."
         format.html { render 'edit' }
+      else
+        if @user.update_attributes(user_params)
+          flash[:success] = "Your password was successfully updated"
+          format.html { redirect_to app_edit_user_path(current_user) }
+        else
+          flash[:warning] = "Password and password confirmation are not same"
+          format.html { render 'edit' }
+        end
       end
     end
   end

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
     get '/users/:id/edit(.:format)' => 'users#edit', as: 'edit_user'
     patch '/users/:id(.:format)' => 'users#update_user', as: 'update_user'
-    patch '/users/:id(.:format)' => 'users#update_password', as: 'update_user_password'
+    patch '/users/:id/update_pass(.:format)' => 'users#update_password', as: 'update_user_password'
     delete '/users/:id(.:format)' => 'users#destroy', as: 'destroy_user'
   end
 
