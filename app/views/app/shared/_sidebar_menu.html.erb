@@ -2,7 +2,11 @@
   <div class="menu_section">
     <h3>General</h3>
     <ul class="nav side-menu">
-      <li class="current-page"><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li class=<%= "current-page" if controller?('app/dashboard') %>>
+        <%= link_to app_dashboard_path do %>
+          <i class="fa fa-dashboard"></i> Dashboard
+        <% end %>
+      </li>
       <li><a><i class="fa fa-calendar"></i> My Calendar</a></li>
       <li><a><i class="fa fa-comments-o"></i> My Conversations</a></li>
       <hr>
