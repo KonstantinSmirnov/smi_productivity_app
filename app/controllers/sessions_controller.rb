@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
   def sign_out
     logout
-    flash[:success] = "You logged out."
+    flash[:success] = "You signed out."
     redirect_to root_path
   end
 
