@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   namespace :app do
     get 'dashboard' => 'dashboard#index'
-    resources :users, only: [:edit, :update, :destroy]
+    get '/users/:id/edit(.:format)' => 'users#edit', as: 'edit_user'
+    patch '/users/:id(.:format)' => 'users#update_user', as: 'update_user'
+    patch '/users/:id(.:format)' => 'users#update_password', as: 'update_user_password'
+    delete '/users/:id(.:format)' => 'users#destroy', as: 'destroy_user'
   end
 
   # *patch match anything which was not found in routes list and redirects to root

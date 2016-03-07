@@ -1,3 +1,6 @@
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %> landing-alert" role="alert"><%= value %></div>
+  <div class="alert alert-<%= key %> alert-dismissible landing-alert alert-disappear" role="alert">
+    <%= value %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
 <% end %>
