@@ -38,6 +38,16 @@ a:focus {
   text-decoration: none;
 }
 
+/* Alerts */
+.alert {
+  display: block;
+  position: absolute;
+  top: 62px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 5px 5px 15px 0px rgba(0,0,0,.2);
+}
+
 /* top navigation */
 .nav_title {
   width: 230px;

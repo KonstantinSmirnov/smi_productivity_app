@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   def sign_in
       if login(params[:email], params[:password])
-        flash.now[:success] = "Welcome back!"
+        flash[:success] = "Welcome back!"
         render js: "window.location='#{app_dashboard_path}'"
       else
         respond_to do |format|
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
   def sign_out
     logout
-    flash[:success] = "You signed out."
+    flash[:success] = "You signed out. Get back soon!"
     redirect_to root_path
   end
 
