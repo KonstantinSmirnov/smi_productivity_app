@@ -27,9 +27,6 @@
           <!-- sidebar menu -->
           <%= render 'app/shared/sidebar_menu' %>
           <!-- end sidebar menu -->
-          <!-- /menu footer buttons -->
-          <%= render 'app/shared/footer_buttons' %>
-          <!-- /menu footer buttons -->
         </div>
       </div>
 
@@ -47,15 +44,14 @@
 
         <%= yield %>
 
-        <!-- footer content -->
-        <%= render 'app/shared/footer' %>
-        <!-- /footer content -->
         <%= params %>
       </div>
-      <!-- /page content -->
+      <!-- footer content -->
+      <%= render 'app/shared/footer' %>
+      <!-- /footer content -->
+    <!-- /page content -->
 
     </div>
   </div>
-
 </body>
 </html>
