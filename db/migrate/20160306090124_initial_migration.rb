@@ -13,5 +13,12 @@ class InitialMigration < ActiveRecord::Migration
     end
 
     add_index :users, :email, unique: true
+
+    create_table :workspaces do |t|
+      t.string :title
+      t.integer :user_id
+
+      t.timestamps
+    end
   end
 end

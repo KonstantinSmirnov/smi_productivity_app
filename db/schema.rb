@@ -28,4 +28,11 @@ ActiveRecord::Schema.define(version: 20160306090124) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
 
+  create_table "workspaces", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end

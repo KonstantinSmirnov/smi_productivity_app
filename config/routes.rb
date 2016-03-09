@@ -10,7 +10,13 @@ Rails.application.routes.draw do
   delete 'session' => 'sessions#sign_out'
 
   namespace :app do
+    # Dashboard
     get 'dashboard' => 'dashboard#index'
+
+    # Workspaces
+    resources :workspaces
+
+    # User profile
     get '/users/:id/edit(.:format)' => 'users#edit', as: 'edit_user'
     patch '/users/:id(.:format)' => 'users#update_user', as: 'update_user'
     patch '/users/:id/update_pass(.:format)' => 'users#update_password', as: 'update_user_password'

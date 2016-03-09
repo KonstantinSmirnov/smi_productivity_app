@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
                   :default_url => 'avatar_default.png'
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-
+  has_many :workspaces, dependent: :destroy
 
 end

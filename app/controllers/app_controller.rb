@@ -3,4 +3,11 @@ class AppController < ApplicationController
   # business logic from not authenticated users
   before_filter :require_login
 
+  before_action :get_workspaces
+
+  private
+
+  def get_workspaces
+    @workspaces = current_user.workspaces
+  end
 end
