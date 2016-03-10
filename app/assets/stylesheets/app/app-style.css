@@ -113,20 +113,27 @@ a:focus {
 .navbar {
   margin-bottom: 0;
 }
+.nav_menu {
+  min-width: 600px;
+}
+.navbar-nav>li, .navbar-nav {
+  float: left;                    /* this for do not collapse the navbar */
+}
 .navbar-nav > li > a {
   font-weight: 500;
   color: #515356;
-  margin-left: 0;
+  margin-left: 5px;
   margin-bottom: 4px;
   line-height: 32px;
 }
+.navbar-left {
+  margin: 0;                    /* this for do not collapse the navbar */
+}
 .navbar-right {
   margin-right: 0;
-  min-width: 200px;
 }
 .top_nav .navbar-right {
   margin: 0;
-  width: 70%;
   float: right;
   margin-right: 10px;
 }
