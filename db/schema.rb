@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160306090124) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
+    t.string   "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

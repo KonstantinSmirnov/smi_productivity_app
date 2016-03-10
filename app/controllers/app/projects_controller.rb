@@ -7,7 +7,7 @@ class App::ProjectsController < AppController
 
   def create
     @user = User.find(current_user)
-    @project = @user.projects.build(title: params[:title])
+    @project = @user.projects.build(title: params[:title], description: params[:description])
 
     respond_to do |format|
       if @project.save
@@ -60,7 +60,7 @@ class App::ProjectsController < AppController
   private
 
   def project_params
-    params.require(:project).permit(:title)
+    params.require(:project).permit(:title, :description)
   end
 
   def has_access?

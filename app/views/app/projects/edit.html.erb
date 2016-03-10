@@ -16,7 +16,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-xs-6 col-xs-offset-3">
-                    <h3>Title</h3>
+                    <h3>Project details</h3>
                     <%= form_for [:app, @current_project], :html => {:class => "form-horizontal center" } do |f| %>
                         <div class="form-group">
                             <div class="col-xs-3">
@@ -24,6 +24,14 @@
                             </div>
                             <div class="col-xs-9">
                                 <%= f.text_field :title, class: 'form-control' %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-3">
+                                <%= f.label :description, class: 'control-label' %>
+                            </div>
+                            <div class="col-xs-9">
+                                <%= f.text_area :description, class: 'form-control' %>
                             </div>
                         </div>
                         <div class="form-group">

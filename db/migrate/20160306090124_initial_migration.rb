@@ -16,6 +16,7 @@ class InitialMigration < ActiveRecord::Migration
 
     create_table :projects do |t|
       t.string :title
+      t.string :description #optional
       t.integer :user_id
 
       t.timestamps
