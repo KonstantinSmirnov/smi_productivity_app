@@ -107,7 +107,7 @@
         <h4 class="modal-title text-center">Do you want to delete your account?</h4>
       </div>
       <div class="modal-body">
-        <div id="delete_message" class="text-center"></div>
+        <div id="delete_user_message" class="text-center"></div>
         <div class="">
           <%= form_for [:app, @user], remote: true, :url => { :action => "destroy" }, :html => {:method => :delete, :class => "form-horizontal center"} do |f| %>
             <div class="form-group">
