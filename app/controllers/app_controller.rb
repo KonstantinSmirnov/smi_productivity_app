@@ -3,11 +3,11 @@ class AppController < ApplicationController
   # business logic from not authenticated users
   before_filter :require_login
 
-  before_action :get_workspaces
+  before_action :get_projects
 
   private
 
-  def get_workspaces
-    @workspaces = current_user.workspaces
+  def get_projects
+    @projects = current_user.projects
   end
 end

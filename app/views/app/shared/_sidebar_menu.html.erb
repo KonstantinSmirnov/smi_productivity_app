@@ -15,29 +15,29 @@
       <li><a><i class="fa fa-comments-o"></i> My Conversations</a></li>
       <hr>
     </ul>
-    <h3>Workspaces <i class="fa fa-plus pull-right add_item" data-toggle="modal" data-target="#add_project_modal"></i></h3>
+    <h3>Projects <i class="fa fa-plus pull-right add_item" data-toggle="modal" data-target="#add_project_modal"></i></h3>
     <ul class="nav side-menu">
-      <% @workspaces.each do |w| %>
-        <li class=<%= "current-page" if w == @current_workspace %>><%= link_to w.title, app_workspace_path(w) %></li>
+      <% @projects.each do |p| %>
+        <li class=<%= "current-page" if p == @current_project %>><%= link_to p.title, app_project_path(p) %></li>
       <% end %>
     </ul>
   </div>
 </div>
 
 
-<!-- Add new workspace -->
+<!-- Add new project -->
 
 <div class="modal fade" id="add_project_modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center">Create new workspace</h4>
+        <h4 class="modal-title text-center">Create new project</h4>
       </div>
       <div class="modal-body">
         <div id="delete_message" class="text-center"></div>
         <div class="">
-        <%= form_tag app_workspaces_path, method: :post do |f| %>
+        <%= form_tag app_projects_path, method: :post do |f| %>
           <div class="form-group">
             <%= label_tag :title %>
             <%= text_field_tag :title, nil, class: 'form-control' %>

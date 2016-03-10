@@ -14,7 +14,7 @@ class InitialMigration < ActiveRecord::Migration
 
     add_index :users, :email, unique: true
 
-    create_table :workspaces do |t|
+    create_table :projects do |t|
       t.string :title
       t.integer :user_id
 

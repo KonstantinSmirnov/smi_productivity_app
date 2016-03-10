@@ -1,4 +1,4 @@
-class Workspace < ActiveRecord::Base
+class Project < ActiveRecord::Base
 
   validates :title, presence: true
 
