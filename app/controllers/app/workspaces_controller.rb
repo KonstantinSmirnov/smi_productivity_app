@@ -19,33 +19,42 @@ class App::WorkspacesController < AppController
       end
     end
   end
+  
+  def edit
+    @current_workspace = Workspace.find(params[:id])
+  end
 
   def update
     @current_workspace = Workspace.find(params[:id])
 
     respond_to do |format|
       if @current_workspace.update_attributes(workspace_params)
-        flash[:success] = "Workspace info has been successfully updated."
-        format.html { render 'show' }
+        flash.now[:success] = "Workspace info has been successfully updated."
+        format.html { render 'edit' }
       else
-        flash[:warning] = "Workspace info could not be updated due to a problem."
-        format.html { render 'show' }
+        flash.now[:warning] = "Workspace info could not be updated due to a problem."
+        format.html { render 'edit' }
       end
     end
   end
 
   def destroy
-    respond_to do |format|
-      @current_workspace = Workspace.find(params[:id])
-      if current_user.id == @current_workspace.user_id
-        @current_workspace.destroy
-        flash[:success] = "Workspace has been successfully destroyed"
-        format.html { redirect_to app_dashboard_path }
+      if User.authenticate(current_user.email, params[:workspace][:password])
+        @current_workspace = Workspace.find(params[:id])
+        if current_user.id == @current_workspace.user_id
+          @current_workspace.destroy
+          flash[:success] = "Workspace has been successfully destroyed"
+          render js: "window.location='#{app_dashboard_path}'"
+        else
+          flash.now[:danger] = "This is no your workspace, it can not be deleted."
+          format.html { render 'edit' }
+        end
       else
-        flash[:danger] = "An error occured during workspace deleting."
-        format.html { render 'show' }
+        respond_to do |format|
+          flash.now[:danger] = "You entered an incorrect password"
+          format.js { render 'delete_error_message' }
+        end
       end
-    end
   end
 
   private
