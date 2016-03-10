@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     # Dashboard
     get 'dashboard' => 'dashboard#index'
 
+    # Calendar
+    get 'user_calendar' => 'user_calendar#index'
+
     # Workspaces
     resources :workspaces
 
