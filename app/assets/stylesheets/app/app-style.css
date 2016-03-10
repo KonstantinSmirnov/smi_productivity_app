@@ -169,6 +169,11 @@ a.user-profile {
   height: 29px;
   border-radius: 50%;
   margin-right: 10px;
+  border: 1px solid #d9dee4;
+}
+.user-profile-big {
+  border-radius: 50%;
+  border: 1px solid #d9dee4;
 }
 
 /* Sidebar navigation md */
