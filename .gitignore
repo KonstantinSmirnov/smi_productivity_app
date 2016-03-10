@@ -21,6 +21,8 @@
 
 #database
 database.yml
+portfolio_app_dev
+portfolio_app_test
 
 # user images
 public/system/

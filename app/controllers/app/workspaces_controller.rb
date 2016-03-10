@@ -48,7 +48,6 @@ class App::WorkspacesController < AppController
     end
   end
 
-
   private
 
   def workspace_params
@@ -56,7 +55,16 @@ class App::WorkspacesController < AppController
   end
 
   def has_access?
-    @current_workspace = Workspace.find(params[:id])
-    redirect_to(app_dashboard_path) unless current_user.id == @current_workspace.user_id
+    if Workspace.exists?(params[:id])
+      @current_workspace = Workspace.find(params[:id])
+      if current_user.id != @current_workspace.user_id
+        flash[:danger] = "You have no access to this workspace"
+        redirect_to app_dashboard_path
+      end
+    else
+      flash[:danger] = "Workspace does not exist."
+      redirect_to app_dashboard_url
+    end
   end
+  
 end

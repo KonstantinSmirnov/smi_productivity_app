@@ -200,6 +200,7 @@ body.nav-md .container.body .col-sm-3.left_col {
 .nav.side-menu > li {
   position: relative;
   display: block;
+  border-left: 3px solid transparent;
 }
 .nav.side-menu > li > a {
   margin-bottom: 1px;
@@ -220,7 +221,7 @@ body.nav-md .container.body .col-sm-3.left_col {
 }
 .nav.side-menu > li.current-page,
 .nav.side_menu > li.active {
-  border-left: 5px solid #1abb9c;
+  border-left: 3px solid #1abb9c;
   background: rgba(255, 255, 255, 0.05);
 }
 .nav.side-menu > li.current-page > a,
