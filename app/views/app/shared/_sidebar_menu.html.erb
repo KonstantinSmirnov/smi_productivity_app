@@ -12,14 +12,12 @@
           <i class="fa fa-calendar"></i> My Calendar
         <% end %>
       </li>
-      <li><a><i class="fa fa-comments-o"></i> My Conversations</a></li>
-      <li><a><i class="fa fa-users"></i> My Team</a></li>
       <hr>
     </ul>
     <h3>Projects <i class="fa fa-plus pull-right add_item" data-toggle="modal" data-target="#add_project_modal"></i></h3>
     <ul class="nav side-menu">
       <% @projects.each do |p| %>
-        <li class=<%= "active" if p == @current_project %>><%= link_to p.title, app_project_path(p) %></li>
+        <li class=<%= "active" if p == @current_project %>><%= link_to p.title, app_project_tasks_path(p) %></li>
       <% end %>
     </ul>
   </div>

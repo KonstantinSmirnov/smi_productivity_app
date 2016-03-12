@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     get 'user_calendar' => 'user_calendar#index'
 
     # Projects
-    resources :projects
+    resources :projects do
+      resources :tasks
+      resources :statuses, only: [:index]
+    end
 
     # User profile
     get '/users/:id/edit(.:format)' => 'users#edit', as: 'edit_user'
