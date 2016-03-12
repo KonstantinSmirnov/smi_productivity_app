@@ -2,12 +2,12 @@
   <div class="menu_section">
     <h3>General</h3>
     <ul class="nav side-menu">
-      <li class=<%= "current-page" if controller?('app/dashboard') %>>
+      <li class=<%= "active" if controller?('app/dashboard') %>>
         <%= link_to app_dashboard_path do %>
           <i class="fa fa-dashboard"></i> Dashboard
         <% end %>
       </li>
-      <li class=<%= "current-page" if controller?('app/user_calendar') %>>
+      <li class=<%= "active" if controller?('app/user_calendar') %>>
         <%= link_to app_user_calendar_path do %>
           <i class="fa fa-calendar"></i> My Calendar
         <% end %>
@@ -19,7 +19,7 @@
     <h3>Projects <i class="fa fa-plus pull-right add_item" data-toggle="modal" data-target="#add_project_modal"></i></h3>
     <ul class="nav side-menu">
       <% @projects.each do |p| %>
-        <li class=<%= "current-page" if p == @current_project %>><%= link_to p.title, app_project_path(p) %></li>
+        <li class=<%= "active" if p == @current_project %>><%= link_to p.title, app_project_path(p) %></li>
       <% end %>
     </ul>
   </div>
