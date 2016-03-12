@@ -42,8 +42,8 @@ a:focus {
 .alert {
   display: block;
   position: absolute;
-  bottom: 30px;
-  left: 20px;
+  top: 62px;
+  right: 20px;
   z-index: 1000;
   box-shadow: 5px 5px 15px 0px rgba(0,0,0,.2);
 }
