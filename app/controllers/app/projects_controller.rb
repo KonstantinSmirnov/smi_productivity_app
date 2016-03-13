@@ -9,7 +9,7 @@ class App::ProjectsController < AppController
     respond_to do |format|
       if @project.save
         flash[:success] = 'Congratulations! New project has been created!'
-        format.html { redirect_to app_project_path(@project) }
+        format.html { redirect_to app_project_tasks_path(@project) }
       else
         flash[:danger] = 'New project can not be created.'
         format.html { redirect_to app_dashboard_path}

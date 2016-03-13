@@ -16,9 +16,17 @@ class InitialMigration < ActiveRecord::Migration
     add_index :users, :email, unique: true
 
     create_table :projects do |t|
+      t.integer :user_id
       t.string :title
       t.string :description #optional
-      t.integer :user_id
+
+      t.timestamps
+    end
+
+    create_table :tasks do |t|
+      t.integer :project_id
+      t.string :title
+      t.boolean :done?, default: false
 
       t.timestamps
     end

@@ -346,7 +346,55 @@ body.nav-md .container.body .right_col {
   margin-top: -47px;
 }
 
+/* Tasks */
+.tasks-list {
+  margin-top: 5px;
+}
+.tasks-list .task {
+  display: block;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #d9dee4;
+  width: 100%;
+  float: left;
+}
+.task-checkbox, .task-options {
+  width: 5%;
+  text-align: center;
+  font-size: 20px;
+}
+.task-body {
+  width: 90%;
+  font-size: 15px;
+}
+.task-body p {
+  padding: 0;
+  margin: 0;
+}
+.task-checkbox, .task-options, .task-body {
+  display: inline-block;
+  font-weight: 200;
+  line-height: 30px;
+  position: relative;
+  float: left;
+}
 
+.task:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+.task-checkbox:hover i,
+.task-options:hover i {
+  color: #2a3f54;
+}
+.tasks-list .task .task-content .task-checkbox a,
+.tasks-list .task .task-content .task-body,
+.tasks-list .task .task-content .task-options {
+}
+.tasks-list .task .task-content.done .task-checkbox a,
+.tasks-list .task .task-content.done .task-body,
+.tasks-list .task .task-content.done .task-options {
+  color: #c4cfda;
+}
 
 
 

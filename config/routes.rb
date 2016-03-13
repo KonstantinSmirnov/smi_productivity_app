@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     # Projects
     resources :projects do
+      patch '/tasks/:id/update_task_status' => 'tasks#update_task_status', as: 'update_task_status'
       resources :tasks
       resources :statuses, only: [:index]
     end
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   # *patch match anything which was not found in routes list and redirects to root
-  get "*path" => redirect("/")
+  #get "*path" => redirect("/")
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -8,7 +8,22 @@
         <%= render 'app/projects/project_navtabs' %>
       </div>
       <div class="panel-body">
-        <p>This is tasks index view</p>
+        <br><br>
+        <%= form_tag app_project_tasks_path, method: :post do |f| %>
+          <div class="input-group">
+            <%= text_field_tag :title, nil, class: 'form-control' %>
+            <span class="input-group-btn">
+              <%= button_tag 'New task', class: 'btn btn-primary' %>
+            </span>
+          </div>
+        <% end %>
+        <div class="tasks-list">
+          <% @tasks.each do |t| %>
+            <div class="task" id=<%= "task_" + t.id.to_s %>>
+              <%= render :partial => 'task', :locals => {:object => t} %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
