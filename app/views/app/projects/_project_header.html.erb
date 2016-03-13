@@ -7,8 +7,8 @@
     </div>
     <div class="project-settings">
       <h3>
-        <% if action?('edit') %>
-          <%= link_to @back_url do %>
+        <% if action?('edit') || action?('update') %>
+          <%= link_to app_project_tasks_path(@current_project) do %>
             <i class="fa fa-undo pull-right"></i>
           <% end %>
         <% else %>

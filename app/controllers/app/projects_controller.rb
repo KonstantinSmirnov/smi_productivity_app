@@ -1,6 +1,5 @@
 class App::ProjectsController < AppController
   before_action :has_access?, except: [:create]
-  before_action :store_previous_url
 
   def create
     @user = User.find(current_user)
@@ -19,7 +18,6 @@ class App::ProjectsController < AppController
 
   def edit
     @current_project = Project.find(params[:id])
-    session[:my_previous_url] ? @back_url = session[:my_previous_url] : @back_url = app_project_tasks_path(@current_project)
   end
 
   def update
@@ -76,11 +74,6 @@ class App::ProjectsController < AppController
       flash[:danger] = "Project does not exist."
       redirect_to app_dashboard_url
     end
-  end
-
-  def store_previous_url
-    # session[:previous_url] is a Rails built-in variable to save last url.
-    session[:my_previous_url] = URI(request.referer || '').path
   end
 
 end

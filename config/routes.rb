@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'user_calendar' => 'user_calendar#index'
 
     # Projects
-    resources :projects do
+    resources :projects, except: [:show] do
       patch '/tasks/:id/update_task_status' => 'tasks#update_task_status', as: 'update_task_status'
       resources :tasks
       resources :statuses, only: [:index]
