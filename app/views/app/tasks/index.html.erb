@@ -9,17 +9,17 @@
       </div>
       <div class="panel-body">
         <br><br>
-        <%= form_tag app_project_tasks_path, method: :post do |f| %>
+        <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
           <div class="input-group">
-            <%= text_field_tag :title, nil, class: 'form-control' %>
+            <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field' %>
             <span class="input-group-btn">
               <%= button_tag 'New task', class: 'btn btn-primary' %>
             </span>
           </div>
         <% end %>
-        <div class="tasks-list">
+        <div class="tasks-list" id="tasks-list-1">
           <% @tasks.each do |t| %>
-            <div class="task" id=<%= "task_" + t.id.to_s %>>
+            <div id="<%= "task_" + t.id.to_s %>">
               <%= render :partial => 'task', :locals => {:object => t} %>
             </div>
           <% end %>

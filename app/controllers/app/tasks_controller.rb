@@ -12,11 +12,10 @@ class App::TasksController < AppController
 
     respond_to do |format|
       if @task.save
-        flash[:success] = 'Task has been created'
-        format.html { redirect_to app_project_tasks_path(@current_project) }
+        format.js { render 'add_task', :object => @task }
       else
-        flash[:danger] = 'Task has not been created'
-        format.html { redirect_to app_project_tasks_path(@current_project)}
+        #task was not created
+        format.js { render js: "window.location='#{app_project_tasks_path(@current_project)}'" }
       end
     end
   end

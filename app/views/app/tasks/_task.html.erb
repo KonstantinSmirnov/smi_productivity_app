@@ -1,4 +1,4 @@
-<div class="<%= object.done? ? "task-content done" : "task-content" %>">
+<div class="<%= object.done? ? "task done" : "task" %>">
   <div class="task-checkbox">
     <%= link_to app_project_update_task_status_path(@current_project, object.id), method: :patch, remote: true do %>
       <i class="<%= object.done? ? "fa fa-check-circle-o" : "fa fa-circle-o" %>"></i>

@@ -1,0 +1,2 @@
+$("#new-task-field").val('');
+$("#tasks-list-1").append("<div id=<%= 'task_' + @task.id.to_s %>><%= escape_javascript(render :partial => 'task', :locals => {:object => @task}) %></div>");

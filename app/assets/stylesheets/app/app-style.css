@@ -386,13 +386,13 @@ body.nav-md .container.body .right_col {
 .task-options:hover i {
   color: #2a3f54;
 }
-.tasks-list .task .task-content .task-checkbox a,
-.tasks-list .task .task-content .task-body,
-.tasks-list .task .task-content .task-options {
+.tasks-list .task .task-checkbox a,
+.tasks-list .task .task-body,
+.tasks-list .task .task-options {
 }
-.tasks-list .task .task-content.done .task-checkbox a,
-.tasks-list .task .task-content.done .task-body,
-.tasks-list .task .task-content.done .task-options {
+.tasks-list .task.done .task-checkbox a,
+.tasks-list .task.done .task-body,
+.tasks-list .task.done .task-options {
   color: #c4cfda;
 }
 
