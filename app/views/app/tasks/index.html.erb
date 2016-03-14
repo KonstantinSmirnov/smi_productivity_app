@@ -11,7 +11,7 @@
         <br><br>
         <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
           <div class="input-group">
-            <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field' %>
+            <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field', autocomplete: :off %>
             <span class="input-group-btn">
               <%= button_tag 'New task', class: 'btn btn-primary' %>
             </span>
