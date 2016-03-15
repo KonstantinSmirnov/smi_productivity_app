@@ -1,3 +1,4 @@
 $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
 $("#<%= 'task_' + @task.id.to_s %>").html("<%= escape_javascript(render :partial => 'task', :locals => {:object => @task}) %>");
+$("#alerts").append($("<%= escape_javascript(render :partial => 'app/shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(300).delay(3000).fadeOut(500));

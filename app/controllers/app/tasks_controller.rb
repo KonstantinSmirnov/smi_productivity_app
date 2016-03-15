@@ -14,8 +14,8 @@ class App::TasksController < AppController
       if @task.save
         format.js { render 'add_task', :object => @task }
       else
-        #task was not created
-        format.js { render js: "window.location='#{app_project_tasks_path(@current_project)}'" }
+        @alert = {:type => 'danger', :message => 'Task can not be created.'}
+        format.js { render 'render_message' }
       end
     end
   end
@@ -42,6 +42,11 @@ class App::TasksController < AppController
 
     respond_to do |format|
       if @task.save
+        if @task.done? == true
+          @alert = {:type => 'success', :message => 'The task is done. Congratulations!'}
+        else
+          @alert = {:type => 'warning', :message => 'You undone the task.'}
+        end
         format.js { render 'update_task', :object => @task }
       else
         flash.now[:danger] = "Task status has not been updated"
