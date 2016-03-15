@@ -14,7 +14,7 @@ class App::TasksController < AppController
       if @task.save
         format.js { render 'add_task', :object => @task }
       else
-        @alert = {:type => 'danger', :message => 'Task can not be created.'}
+        @alert = {:type => 'danger', :message => 'Task has not been created.'}
         format.js { render 'app/shared/render_alert' }
       end
     end
@@ -26,7 +26,7 @@ class App::TasksController < AppController
 
     respond_to do |format|
       if @task.update_attributes(task_params)
-        flash.now[:success] = 'Task has been updated'
+        @alert = {:type => 'success', :message => 'Task has been updated.'}
         format.js { render 'update_task', :object => @task }
       else
         format.js { render 'update_task_message' }
@@ -62,6 +62,7 @@ class App::TasksController < AppController
 
     respond_to do |format|
       if @task.delete
+        @alert = {:type => 'warning', :message => 'You just deleted a task.'}
         format.js { render 'hide_task', :object => @task_id }
       else
         format.js { render 'delete_task_message' }
