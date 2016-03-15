@@ -15,7 +15,7 @@ class App::TasksController < AppController
         format.js { render 'add_task', :object => @task }
       else
         @alert = {:type => 'danger', :message => 'Task can not be created.'}
-        format.js { render 'render_message' }
+        format.js { render 'app/shared/render_alert' }
       end
     end
   end
