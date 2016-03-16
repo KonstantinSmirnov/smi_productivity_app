@@ -359,14 +359,17 @@ body.nav-md .container.body .right_col {
 }
 
 /* Tasks */
-.tasks-list {
+.tasks .panel {
   margin-top: 5px;
   max-width: 1000px;
   margin: 0 auto;
   overflow: auto;
   max-height: calc(100vh - 200px);
 }
-.tasks-list .task {
+.tasks .tasks-list {
+  margin-top: 10px;
+}
+.tasks .tasks-list .task-content {
   display: block;
   padding: 5px 0 5px 0;
   border-bottom: 1px solid #d9dee4;
@@ -394,7 +397,7 @@ body.nav-md .container.body .right_col {
   float: left;
 }
 
-.task:hover {
+.task-content:hover {
   background-color: #f7f7f7;
   cursor: pointer;
 }
@@ -402,13 +405,29 @@ body.nav-md .container.body .right_col {
 .task-options:hover i {
   color: #2a3f54;
 }
-.tasks-list .task.done .task-checkbox a,
-.tasks-list .task.done .task-body,
-.tasks-list .task.done .task-options {
+.tasks .task.done .task-checkbox a,
+.tasks .task.done .task-body,
+.tasks .task.done .task-options {
   color: #c4cfda;
 }
 
+.task.active .task-content {
+  background-color: #f8f8f8;
+}
 
+.tasks.doubled {
+  max-width: 100%;
+  min-width: 1000px;
+}
+
+.tasks-left-part {
+  float: left;
+  width: 50%;
+}
+.tasks-right-part {
+  float: right;
+  width: 49%;
+}
 
 
 
