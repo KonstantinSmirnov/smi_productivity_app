@@ -2,3 +2,8 @@ $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
 $("#<%= "task_" + @task_id.to_s %>").hide();
 $("#alerts").append($("<%= escape_javascript(render :partial => 'app/shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(100).delay(2000).slideUp(500));
+$(".task").removeClass('active');
+$(".tasks").removeClass('doubled');
+$("#tasks-left").removeClass('tasks-left-part');
+$("#tasks-right").removeClass('tasks-right-part');
+$("#tasks-right").hide();

@@ -1,0 +1,15 @@
+if ($("#<%= 'task_' + @task.id.to_s %>").hasClass('active')) {
+  $(".task").removeClass('active');
+  $(".tasks").removeClass('doubled');
+  $("#tasks-left").removeClass('tasks-left-part');
+  $("#tasks-right").removeClass('tasks-right-part');
+  $("#tasks-right").hide();
+} else {
+  $(".task").removeClass('active');
+  $("#<%= 'task_' + @task.id.to_s %>").addClass('active');
+  $(".tasks").addClass('doubled');
+  $("#tasks-left").addClass('tasks-left-part');
+  $("#tasks-right").show();
+  $("#tasks-right").addClass('tasks-right-part');
+  $("#tasks-right").html("<%= escape_javascript(render :partial => 'task_details', :locals => {:object => @task}) %>");
+}

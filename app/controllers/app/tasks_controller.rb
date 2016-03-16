@@ -55,6 +55,20 @@ class App::TasksController < AppController
     end
   end
 
+  def get_task_details
+    @task = Task.find(params[:id])
+
+    respond_to do |format|
+      if @task
+        format.js { render 'show_task_details', :object => @task }
+      else
+        @alert = {:type => 'danger', :message => 'Task was not found'}
+        format.js { render 'app/shared/render_alert' }
+      end
+
+    end
+  end
+
   def destroy
     @current_project = Project.find(params[:project_id])
     @task = Task.find(params[:id])

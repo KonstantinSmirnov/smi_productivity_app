@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     # Projects
     resources :projects, except: [:show] do
       patch '/tasks/:id/update_task_status' => 'tasks#update_task_status', as: 'update_task_status'
+      get '/tasks/:id/get_task_details' => 'tasks#get_task_details', as: 'get_task_details'
       resources :tasks
       resources :statuses, only: [:index]
     end

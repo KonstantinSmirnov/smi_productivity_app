@@ -351,11 +351,13 @@ body.nav-md .container.body .right_col {
   width: 100%;
   display: block;
   float: left;
+  padding-top: 0;
 }
 .project-settings {
   display: block;
   float: right;
   margin-top: -47px;
+  margin-right: 25px;
 }
 
 /* Tasks */
@@ -402,7 +404,7 @@ body.nav-md .container.body .right_col {
   cursor: pointer;
 }
 .task-checkbox:hover i,
-.task-options:hover i {
+.task-options i:hover {
   color: #2a3f54;
 }
 .tasks .task.done .task-checkbox a,
@@ -410,14 +412,17 @@ body.nav-md .container.body .right_col {
 .tasks .task.done .task-options {
   color: #c4cfda;
 }
-
+.task-options .dropdown-menu {
+  z-index: 3000;
+  position: absolute;
+}
 .task.active .task-content {
   background-color: #f8f8f8;
 }
 
 .tasks.doubled {
   max-width: 100%;
-  min-width: 1000px;
+  min-width: 600px;
 }
 
 .tasks-left-part {
@@ -428,6 +433,11 @@ body.nav-md .container.body .right_col {
   float: right;
   width: 49%;
 }
+.tasks-right-part .task-details {
+  overflow: auto;
+  max-height: calc(100vh - 200px);
+}
+
 
 
 
