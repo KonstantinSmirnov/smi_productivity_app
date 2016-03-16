@@ -1,28 +1,28 @@
 <%= render 'app/projects/project_header' %>
+<div class=" custom-tabs">
+  <%= render 'app/projects/project_navtabs' %>
+</div>
 
-
-<div class="row">
+<div class="row content_padding">
   <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-heading custom-tabs">
-        <%= render 'app/projects/project_navtabs' %>
-      </div>
-      <div class="panel-body">
-        <br><br>
-        <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
-          <div class="input-group">
-            <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field', autocomplete: :off %>
-            <span class="input-group-btn">
-              <%= button_tag 'New task', class: 'btn btn-primary' %>
-            </span>
-          </div>
-        <% end %>
-        <div class="tasks-list" id="tasks-list-1">
-          <% @tasks.each do |t| %>
-            <div id="<%= "task_" + t.id.to_s %>">
-              <%= render :partial => 'task', :locals => {:object => t} %>
+    <div class="tasks-list">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
+            <div class="input-group">
+              <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field', autocomplete: :off %>
+              <span class="input-group-btn">
+                <%= button_tag 'New task', class: 'btn btn-primary' %>
+              </span>
             </div>
           <% end %>
+          <div id="tasks-list-1">
+            <% @tasks.each do |t| %>
+              <div id="<%= "task_" + t.id.to_s %>">
+                <%= render :partial => 'task', :locals => {:object => t} %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

@@ -296,7 +296,7 @@ body .container.body .right_col {
 }
 
 body.nav-md .container.body .right_col {
-  padding: 10px 20px 0;
+  padding: 10px 0 0;
   margin-left: 230px;
 }
 .right_col{
@@ -305,35 +305,42 @@ body.nav-md .container.body .right_col {
   overflow: hidden;
   min-width: 600px;
 }
+.right_col .content_padding {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+}
 
 /* Tabs */
-.panel-heading.custom-tabs {
+.custom-tabs {
   float: left;
   width: 100%;
-  height: 40px;
+  height: 28px;
+  background: #ededed;
+  border-top: 1px solid #d9dee4;
+  border-bottom: 1px solid #d9dee4;
 }
-.panel-heading > ul {
+.custom-tabs > ul {
   text-align: center;
   list-style-type: none;
-  margin-top: -11px;
 }
-.panel-heading > ul > li {
+.custom-tabs > ul > li {
   float: none;
   position: relative;
   display: inline-block;
 }
-.panel-heading > ul > li > a {
+.custom-tabs > ul > li > a {
   font-weight: 500;
   cursor: pointer;
   display: block;
-  padding: 9px 15px;
+  padding: 3px 15px;
 }
-.panel-heading > ul > li:not(.active) > a:hover,
-.panel-heading > ul > li:not(.active) > a:focus {
+.custom-tabs > ul > li:not(.active) > a:hover,
+.custom-tabs > ul > li:not(.active) > a:focus {
   color: #2a3f54;
   border-bottom: 3px solid #c4cfda;
 }
-.panel-heading > ul > li.active > a {
+.custom-tabs > ul > li.active > a {
   color: #2a3f54;
   border-bottom: 3px solid #1abb9c;
 }
@@ -354,6 +361,10 @@ body.nav-md .container.body .right_col {
 /* Tasks */
 .tasks-list {
   margin-top: 5px;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: auto;
+  max-height: calc(100vh - 200px);
 }
 .tasks-list .task {
   display: block;
@@ -390,10 +401,6 @@ body.nav-md .container.body .right_col {
 .task-checkbox:hover i,
 .task-options:hover i {
   color: #2a3f54;
-}
-.tasks-list .task .task-checkbox a,
-.tasks-list .task .task-body,
-.tasks-list .task .task-options {
 }
 .tasks-list .task.done .task-checkbox a,
 .tasks-list .task.done .task-body,
