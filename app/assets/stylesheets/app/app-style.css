@@ -278,12 +278,16 @@ body.nav-md .container.body .col-sm-3.left_col {
 footer {
   border-top: 1px solid #d9dee4;
   background: #ededed;
-  padding: 5px 20px 0;
-  height: 45px;
+  padding: 3px 23px 0;
+  height: 35px;
   margin-left: 230px;
   display: block;
   min-width: 600px;
   overflow: hidden;
+  font-size: 14px;
+}
+footer span.lead {
+  font-size: 20px;
 }
 footer a {
   cursor: pointer;
@@ -309,6 +313,7 @@ body.nav-md .container.body .right_col {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 40px;
+  padding-bottom: 5px;
 }
 
 /* Tabs */
@@ -366,7 +371,7 @@ body.nav-md .container.body .right_col {
   max-width: 1000px;
   margin: 0 auto;
   overflow: auto;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 45px);
 }
 .tasks .tasks-list {
   margin-top: 10px;
@@ -398,6 +403,11 @@ body.nav-md .container.body .right_col {
   position: relative;
   float: left;
   margin-right: 5px;
+}
+.task-checkbox {
+  width: 30px;
+  height: 30px;
+  display: block;
 }
 .task-checkbox div.circle-empty {
   border: 1px solid #73879c;
