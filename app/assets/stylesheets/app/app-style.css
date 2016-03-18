@@ -41,13 +41,13 @@ a:focus {
 /* Alerts */
 #alerts {
   position: absolute;
-  top: 62px;
-  right: 20px;
+  bottom: 62px;
+  left: 10px;
   z-index: 1000;
 }
 .alert {
-  float: right;
-  clear: right;
+  float: left;
+  clear: left;
   margin: 0;
   margin-bottom: 5px;
   box-shadow: 5px 5px 15px 0px rgba(0,0,0,.2);
@@ -418,8 +418,7 @@ body.nav-md .container.body .right_col {
 }
 .task-checkbox div.circle-filled {
   border: 1px solid #c4cfda;
-  box-shadow:
-    inset 0 0 0 4px #fff;
+  box-shadow: inset 0 0 0 4px #fff;
   background-color: #c4cfda;
   border-radius: 50%;
   height: 24px;
@@ -433,8 +432,7 @@ body.nav-md .container.body .right_col {
 }
 .task-checkbox div.circle-empty:hover {
   border-color: #999;
-  box-shadow:
-    inset 0 0 0 4px #fff;
+  box-shadow: inset 0 0 0 4px #fff;
   background-color: #c4cfda;
 }
 .task-options:hover i {
@@ -449,7 +447,7 @@ body.nav-md .container.body .right_col {
   position: absolute;
 }
 .task.active .task-content {
-  background-color: #f8f8f8;
+  background-color: #e4f1fe;
 }
 
 .tasks.doubled {
@@ -469,7 +467,9 @@ body.nav-md .container.body .right_col {
   overflow: auto;
   max-height: calc(100vh - 200px);
 }
-
+.panel.task-details {
+  box-shadow: inset 0 0 0 4px #e4f1fe;
+}
 
 
 
