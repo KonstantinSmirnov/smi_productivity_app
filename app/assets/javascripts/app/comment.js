@@ -10,7 +10,7 @@
 $(function() {
   $(document).on('click', '.comment-form .expand', function() {
     $(".comment-form .expand").animate({ height: "6em" }, 200);
-    $(".comment-form .controls").delay( 200 ).fadeIn( 400 );
+    $(".comment-form .controls").delay( 15 ).slideDown( 400 );
   });
 
   $(document).click(function (e) {
