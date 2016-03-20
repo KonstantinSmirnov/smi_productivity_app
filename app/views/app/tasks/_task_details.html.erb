@@ -7,4 +7,18 @@
     <li>Subtasks</li>
     <li>comments, files, history</li>
   </ul>
+  <h3>Comments:</h3>
+  <%= form_tag [:app, @current_project, @task, @task.comments.build], method: :post, remote: true do |f| %>
+    <div class="input-group">
+      <%= text_field_tag :text, nil, class: 'form-control', autocomplete: :off %>
+      <span class="input-group-btn">
+        <%= button_tag 'New comment', class: 'btn btn-primary' %>
+      </span>
+    </div>
+  <% end %>
+  <div>
+    <% @task.comments.each do |c| %>
+      <%= c.text %><br>
+    <% end %>
+  </div>
 </div>

@@ -57,6 +57,7 @@ class App::TasksController < AppController
 
   def get_task_details
     @task = Task.find(params[:id])
+    @current_project = Project.find(params[:project_id])
 
     respond_to do |format|
       if @task
