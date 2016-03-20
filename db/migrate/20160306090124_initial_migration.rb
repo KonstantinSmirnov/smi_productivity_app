@@ -30,11 +30,12 @@ class InitialMigration < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+
     create_table :comments do |t|
       t.integer :task_id
+      t.integer :user_id
       t.string :text
-      
+
       t.timestamps
     end
   end

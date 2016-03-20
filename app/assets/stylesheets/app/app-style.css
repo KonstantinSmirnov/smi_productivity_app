@@ -471,6 +471,52 @@ body.nav-md .container.body .right_col {
   box-shadow: inset 0 0 0 4px #e4f1fe;
 }
 
+/* Task comments */
+
+.comment-form {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.comment-form textarea{
+    border:none;
+    width:100%;
+    resize: none;
+}
+.comment-form textarea:focus{
+    outline: none;
+}
+.comment-form .form-group {
+  padding: 0;
+  margin: 0;
+}
+.controls{
+  display: none;
+    text-align: right;
+    padding: 5px;
+    border-top: 1px solid #ccc;
+}
+.comment {
+  border: 1px dotted #ccc;
+  border-radius: 4px;
+  display: block;
+  margin-top: 10px;
+}
+.comment .comment-header {
+  padding: 5px 0px 0px 10px;
+  color: #ccc;
+  font-style: italic;
+}
+.comment .comment-body {
+  padding: 5px 10px;
+}
+
+
+
+
+
+
+
+
 
 
 

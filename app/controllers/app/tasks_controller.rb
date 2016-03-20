@@ -58,6 +58,7 @@ class App::TasksController < AppController
   def get_task_details
     @task = Task.find(params[:id])
     @current_project = Project.find(params[:project_id])
+    @new_comment = Comment.new
 
     respond_to do |format|
       if @task
@@ -78,7 +79,7 @@ class App::TasksController < AppController
     respond_to do |format|
       if @task.delete
         @alert = {:type => 'warning', :message => 'You just deleted a task.'}
-        format.js { render 'hide_task', :object => @task_id }
+        format.js { render 'hide_task' }
       else
         format.js { render 'delete_task_message' }
       end

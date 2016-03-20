@@ -1,3 +1,6 @@
 class Comment < ActiveRecord::Base
-   belongs_to :task 
+
+  validates :text, presence: true
+  belongs_to :task
+  belongs_to :user
 end

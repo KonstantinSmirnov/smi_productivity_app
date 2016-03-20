@@ -17,5 +17,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_many :projects, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 end
