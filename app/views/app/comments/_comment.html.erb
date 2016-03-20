@@ -1,13 +1,11 @@
 <div class="comment-header">
-  <small>
-    <%= object.user.name %>
-     wrote
-    <%= object.created_at.strftime("%d.%m.%y") %>
-     at
-     <%= object.created_at.strftime("%H:%M")%>
-    <%= link_to 'Edit', '#' %>
-    <%= link_to 'Delete', [:app, @current_project, @task, object], method: :delete, :data => {:confirm => 'Are you sure?'}, remote: true %>
-  </small>
+  <%= object.user.name %>
+   wrote
+  <%= object.created_at.strftime("%d.%m.%y") %>
+   at
+   <%= object.created_at.strftime("%H:%M")%>
+  <%= link_to 'Edit', '#' %>
+  <%= link_to 'Delete', [:app, @current_project, @task, object], method: :delete, :data => {:confirm => 'Are you sure?'}, remote: true %>
 </div>
 <div class="comment-body">
   <%= object.text %>
