@@ -304,7 +304,7 @@ body.nav-md .container.body .right_col {
   margin-left: 230px;
 }
 .right_col{
-  min-height: calc(100vh - 102px); /* height = 100% of window size - 102px */
+  min-height: calc(100vh - 93px); /* height = 100% of window size - 102px */
   display: block;
   overflow: hidden;
   min-width: 600px;
@@ -502,9 +502,15 @@ body.nav-md .container.body .right_col {
   margin-top: 10px;
 }
 .comment .comment-header {
-  padding: 5px 0px 0px 10px;
+  padding: 5px 10px 0px 10px;
   color: #ccc;
   font-style: italic;
+}
+.comment .comment-header a {
+  color: #ccc;
+}
+.comment .comment-header a:hover {
+  color: #aaa;
 }
 .comment .comment-body {
   padding: 5px 10px;
