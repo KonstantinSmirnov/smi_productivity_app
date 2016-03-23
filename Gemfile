@@ -46,11 +46,11 @@ group :development do
 end
 
 # Gems for styling
-gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'bootstrap-sass', '~> 3'
+gem 'font-awesome-rails', '~> 4.5'
 
 # Users authentication
-gem 'sorcery'
+gem 'sorcery', '~> 0.9'
 
 # Users avatars and files
-gem 'paperclip'
+gem 'paperclip', '~> 4.3.5'
