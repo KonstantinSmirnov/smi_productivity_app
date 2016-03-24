@@ -27,6 +27,7 @@ class InitialMigration < ActiveRecord::Migration
       t.integer :project_id
       t.string :title
       t.boolean :done?, default: false
+      t.string :description
 
       t.timestamps
     end

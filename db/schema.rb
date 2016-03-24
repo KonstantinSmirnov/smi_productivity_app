@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 20160306090124) do
   create_table "tasks", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "title"
-    t.boolean  "done?",      default: false
+    t.boolean  "done?",       default: false
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

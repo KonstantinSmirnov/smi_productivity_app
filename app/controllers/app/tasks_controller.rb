@@ -55,6 +55,21 @@ class App::TasksController < AppController
     end
   end
 
+  def update_description
+    @current_project = Project.find(params[:project_id])
+    @task = Task.find(params[:id])
+
+    respond_to do |format|
+      if @task.update_attributes(task_params)
+        @alert = {:type => 'success', :message => 'Task description has been updated.'}
+        format.js { render 'render_description' }
+      else
+        @alert = {:type => 'danger', :message => 'Task description was not updated.'}
+        format.js { render 'app/shared/render_alert' }
+      end
+    end
+  end
+
   def get_task_details
     @task = Task.find(params[:id])
     @current_project = Project.find(params[:project_id])
@@ -89,7 +104,7 @@ class App::TasksController < AppController
   private
 
   def task_params
-    params.require(:task).permit(:title)
+    params.require(:task).permit(:title, :description)
   end
 
   def has_access?

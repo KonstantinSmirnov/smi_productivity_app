@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :projects, except: [:show] do
       patch '/tasks/:id/update_task_status' => 'tasks#update_task_status', as: 'update_task_status'
       get '/tasks/:id/get_task_details' => 'tasks#get_task_details', as: 'get_task_details'
+      patch '/tasks/:id/update_description' => 'tasks#update_description', as: 'update_task_description'
       get 'comments/:id/cancel_edit' => 'comments#cancel_edit', as: 'cancel_comment_edit'
       resources :tasks do
         resources :comments

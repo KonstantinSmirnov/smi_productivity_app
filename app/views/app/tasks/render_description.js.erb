@@ -1,0 +1,8 @@
+$("#task_description_modal").fadeOut(300);
+$('.modal-backdrop').remove();
+$('body').removeClass('modal-open');
+
+$("#task_description").html("<%= j render :partial => 'description', :locals => {:object => @task} %>").hide().fadeIn(300);
+<% if @alert %>
+  $("#alerts").append($("<%= escape_javascript(render :partial => 'app/shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(100).delay(2000).slideUp(500));
+<% end %>

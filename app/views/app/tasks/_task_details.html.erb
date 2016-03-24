@@ -1,5 +1,9 @@
 <div class="panel panel-default task-details">
   <div class="panel-body">
+    <div id="task_description">
+      <%= render :partial => 'description', :locals => { :object => @task } %>
+    </div>
+
     <div class="comment-form" id="comment-form">
       <%= form_tag [:app, @current_project, @task, @new_comment], method: :post, remote: true do |f| %>
         <div class="form-group">
@@ -19,9 +23,26 @@
       <% end %>
     </div>
   </div>
-  <ul>
-    <li>Description</li>
-    <li>Subtasks</li>
-    <li>comments, files, history</li>
-  </ul>
+</div>
+
+<!-- form for update description -->
+<div class="modal fade" id="task_description_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">Task description</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @task, :url => app_project_update_task_description_path(@current_project, @task), remote: true do |f| %>
+          <div class="form-group">
+            <%= f.text_area :description, class: 'form-control', rows: 10, autocomplete: :off %>
+          </div>
+          <div class="text-center">
+            <%= f.submit 'Update', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
