@@ -9,8 +9,8 @@
 
 $(function() {
   $(document).on('click', '.comment-form .expand', function() {
-    $(".comment-form .expand").animate({ height: "6em" }, 200);
-    $(".comment-form .controls").delay( 15 ).slideDown( 400 );
+    $("#comment-form #new-comment-field").animate({ height: "6em" }, 200);
+    $("#comment-form .controls").delay( 15 ).slideDown( 400 );
   });
 
   $(document).click(function (e) {
@@ -18,8 +18,8 @@ $(function() {
     if (!container.is(e.target) // if the target of the click isn't the container...
         && container.has(e.target).length === 0) // ... nor a descendant of the container
     {
-      $(".comment-form .expand").animate({ height: "2.35em"}, 200);
-      $(".comment-form .controls").hide();
+      $("#comment-form #new-comment-field").animate({ height: "2.35em"}, 200);
+      $("#comment-form .controls").hide();
     }
   });
 

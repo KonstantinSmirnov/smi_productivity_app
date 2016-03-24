@@ -1,1 +1,1 @@
-$("#<%= 'delete_task_' + @task.id.to_s + '_message' %>").html("<%= escape_javascript(render 'message') %>");
+$("#<%= 'delete_task_' + @task.id.to_s + '_message' %>").html("<%= escape_javascript(render 'message') %>").hide().fadeOut(300);

@@ -1,2 +1,2 @@
 $("#new-comment-field").val('');
-$("#comments-list").prepend($("<div id=<%= 'comment_' + @comment.id.to_s %> class='comment'><%= escape_javascript(render :partial => 'comment', :locals => {:object => @comment}) %></div>").hide().fadeIn(300));
+$("#comments-list").prepend($("<div class='comment' id=<%= 'comment_' + @comment.id.to_s %> ><%= escape_javascript(render :partial => 'comment', :locals => {:object => @comment}) %></div>").hide().fadeIn(300));

@@ -490,10 +490,12 @@ body.nav-md .container.body .right_col {
   margin: 0;
 }
 .controls{
-  display: none;
     text-align: right;
     padding: 5px;
     border-top: 1px solid #ccc;
+}
+#comment-form .controls {
+  display: none;
 }
 .comment {
   border: 1px dotted #ccc;
