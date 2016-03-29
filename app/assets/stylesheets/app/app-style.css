@@ -41,16 +41,23 @@ a:focus {
 /* Alerts */
 #alerts {
   position: absolute;
-  bottom: 62px;
-  left: 10px;
+  bottom: 0px;
+  left: 0px;
   z-index: 1000;
 }
 .alert {
   float: left;
   clear: left;
   margin: 0;
-  margin-bottom: 5px;
   box-shadow: 5px 5px 15px 0px rgba(0,0,0,.2);
+  padding: 8px 35px 8px 14px;
+  color: #73879c;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  width: 230px;
 }
 
 /* Modal */
