@@ -4,16 +4,18 @@
       <%= render :partial => 'description', :locals => { :object => @task } %>
     </div>
 
-    <div class="comment-form" id="comment-form">
-      <%= form_tag [:app, @current_project, @task, @new_comment], method: :post, remote: true do |f| %>
-        <div class="form-group">
-          <%= text_area_tag :text, nil, id: 'new-comment-field', class: 'form-control expand', rows: 1, placeholder: 'Add a comment', autocomplete: :off %>
-        </div>
-        <div class="controls">
-          <%= submit_tag 'Add comment', id: 'new-comment-submit', class: 'btn btn-default btn-sm' %>
-        </div>
-      <% end %>
-    </div>
+    <% if @current_project.active? %>
+      <div class="comment-form" id="comment-form">
+        <%= form_tag [:app, @current_project, @task, @new_comment], method: :post, remote: true do |f| %>
+          <div class="form-group">
+            <%= text_area_tag :text, nil, id: 'new-comment-field', class: 'form-control expand', rows: 1, placeholder: 'Add a comment', autocomplete: :off %>
+          </div>
+          <div class="controls">
+            <%= submit_tag 'Add comment', id: 'new-comment-submit', class: 'btn btn-default btn-sm' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <div id="comments-list">
       <% @task.comments.reverse.each do |c| %>

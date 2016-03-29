@@ -1,16 +1,3 @@
-<div class="comment-form">
-  <%= form_for @task, :url => app_project_update_task_description_path(@current_project, @task), remote: true do |f| %>
-    <div class="form-group">
-      <%= f.text_area :description, class: 'form-control', rows: 3, placeholder: 'Add description', autocomplete: :off %>
-    </div>
-    <div class="controls">
-      <%= f.submit 'Update', class: 'btn btn-default btn-sm', remote: true %>
-      <%= link_to 'Cancel', app_project_task_cancel_edit_description_path(@current_project, @task), class: 'btn btn-default btn-sm', remote: true %>
-    </div>
-  <% end %>
-</div>
-<br>
-
 <div class="modal fade" id="<%= 'task_modal_' + object.id.to_s %>" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">

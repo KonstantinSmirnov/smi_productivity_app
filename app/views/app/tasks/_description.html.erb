@@ -1,15 +1,21 @@
 <% if !object.description or object.description.empty? %>
   <p>
-    <a href="#" data-toggle="modal" data-target="#task_description_modal"><i>Add description</i></a>
+    <% if @current_project.active? %>
+      <a href="#" data-toggle="modal" data-target="#task_description_modal"><i>Add description</i></a>
+    <% else %>
+      <i>There is no description for this project.</i>
+    <% end %>
   </p>
 <% else %>
   <p>
     <a href="#" data-toggle="modal" data-target="#show_task_description_modal">
       <%= object.description.truncate(250) %> <i>(click to open)</i>
     </a>
-    <a href="#" class="btn btn-default btn-xs" data-toggle="modal" data-target="#task_description_modal">
-      <i>Edit</i>
-    </a>
+    <% if @current_project.active? %>
+      <a href="#" class="btn btn-default btn-xs" data-toggle="modal" data-target="#task_description_modal">
+        <i>Edit</i>
+      </a>
+    <% end %>
   </p>
 <% end %>
 

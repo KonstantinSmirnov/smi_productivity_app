@@ -18,7 +18,8 @@ class InitialMigration < ActiveRecord::Migration
     create_table :projects do |t|
       t.integer :user_id
       t.string :title
-      t.string :description #optional
+      t.string :description
+      t.integer :status, default: 0
 
       t.timestamps
     end

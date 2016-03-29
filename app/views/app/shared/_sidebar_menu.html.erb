@@ -16,10 +16,19 @@
     </ul>
     <h3>Projects <i class="fa fa-plus pull-right add_item" data-toggle="modal" data-target="#add_project_modal"></i></h3>
     <ul class="nav side-menu">
-      <% @projects.each do |p| %>
+      <% @projects.active.each do |p| %>
         <li class=<%= "active" if p == @current_project %>><%= link_to p.title, app_project_tasks_path(p) %></li>
       <% end %>
     </ul>
+    <% if @projects.archived.count != 0 %>
+      <hr>
+      <h3>Archived Projects</h3>
+      <ul class="nav side-menu">
+        <% @projects.archived.each do |p| %>
+          <li class=<%= 'active' if p == @current_project %>><%= link_to p.title, app_project_tasks_path(p) %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
 

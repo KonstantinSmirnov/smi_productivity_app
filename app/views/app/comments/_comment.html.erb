@@ -1,11 +1,13 @@
 <div class="comment-header">
   <%= object.user.name %> <%= distance_of_time_in_words(Time.now - object.created_at) %> ago:
-  <% if (Time.now - object.created_at) < 600 %>
-    <div class="options pull-right">
-      <%= distance_of_time_in_words(object.created_at - Time.now + 600) %> left to
-      <%= link_to 'Edit', edit_app_project_task_comment_path(@current_project, @task, object), remote: true %>
-      <%= link_to 'Delete', [:app, @current_project, @task, object], method: :delete, :data => {:confirm => 'Are you sure?'}, remote: true %>
-    </div>
+  <% if @current_project.active? %>
+    <% if (Time.now - object.created_at) < 600 %>
+      <div class="options pull-right">
+        <%= distance_of_time_in_words(object.created_at - Time.now + 600) %> left to
+        <%= link_to 'Edit', edit_app_project_task_comment_path(@current_project, @task, object), remote: true %>
+        <%= link_to 'Delete', [:app, @current_project, @task, object], method: :delete, :data => {:confirm => 'Are you sure?'}, remote: true %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <div class="comment-body">

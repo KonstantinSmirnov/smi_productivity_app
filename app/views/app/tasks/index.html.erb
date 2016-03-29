@@ -9,13 +9,15 @@
       <div id="tasks-left">
         <div class="panel panel-default">
           <div class="panel-body">
-            <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
-              <div class="input-group">
-                <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field', autocomplete: :off %>
-                <span class="input-group-btn">
-                  <%= button_tag 'New task', class: 'btn btn-primary' %>
-                </span>
-              </div>
+            <% if @current_project.active? %>
+              <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
+                <div class="input-group">
+                  <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field', autocomplete: :off %>
+                  <span class="input-group-btn">
+                    <%= button_tag 'Add', class: 'btn btn-default' %>
+                  </span>
+                </div>
+              <% end %>
             <% end %>
             <div id="tasks-list-1" class="tasks-list">
               <% @tasks.each do |t| %>

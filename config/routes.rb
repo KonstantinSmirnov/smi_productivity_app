@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     # Projects
     resources :projects, except: [:show] do
+      patch 'archive' => 'projects#archive', as: 'archive'
       patch '/tasks/:id/update_task_status' => 'tasks#update_task_status', as: 'update_task_status'
       get '/tasks/:id/get_task_details' => 'tasks#get_task_details', as: 'get_task_details'
       patch '/tasks/:id/update_description' => 'tasks#update_description', as: 'update_task_description'

@@ -1,15 +1,21 @@
 <div class="<%= object.done? ? "task-content done" : "task-content" %>">
   <div class="task-checkbox">
-    <%= link_to app_project_update_task_status_path(@current_project, object.id), method: :patch, remote: true do %>
+    <% if @current_project.active? %>
+      <%= link_to app_project_update_task_status_path(@current_project, object.id), method: :patch, remote: true do %>
+        <div class="<%= object.done? ? "circle-filled" : "circle-empty" %>"></div>
+      <% end %>
+    <% else %>
       <div class="<%= object.done? ? "circle-filled" : "circle-empty" %>"></div>
     <% end %>
   </div>
   <%= link_to app_project_get_task_details_path(@current_project, object.id), class: 'task-body', remote: true do %>
     <p><%= object.title %></p>
   <% end %>
-  <div class="task-options pull-right">
-    <i class="fa fa-ellipsis-h" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
-  </div>
+  <% if @current_project.active? %>
+    <div class="task-options pull-right">
+      <i class="fa fa-ellipsis-h" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
+    </div>
+  <% end %>
 </div>
 
 
