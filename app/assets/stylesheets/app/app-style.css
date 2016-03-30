@@ -291,7 +291,7 @@ footer {
   overflow: hidden;
   font-size: 14px;
 }
-footer span.lead {
+footer .lead {
   font-size: 20px;
 }
 footer a {
@@ -470,7 +470,7 @@ body.nav-md .container.body .right_col {
 }
 .tasks-right-part .task-details {
   overflow: auto;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 43px);
 }
 .panel.task-details {
   box-shadow: inset 0 0 0 4px #e4f1fe;
