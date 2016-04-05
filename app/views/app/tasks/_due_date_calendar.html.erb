@@ -1,6 +1,6 @@
 <%= form_for object, :url => app_project_update_task_due_date_path(@current_project, object), remote: true do |f| %>
-  <%= f.hidden_field :due_date, class: 'form-control', id: 'datetime' %>
-  <div id="datetimepicker12"></div>
+  <%= f.hidden_field :due_date, class: 'form-control', id: 'due_date_field' %>
+  <div id="datepicker"></div>
   <div class="text-center">
     <i class="btn btn-default" id="clearpicker">Clear</i>
     <%= f.submit 'Save', class: 'btn btn-primary' %>
@@ -12,20 +12,20 @@
 <script type="text/javascript">
   $(function () {
     var dueDate="<%= object.due_date %>";
-      $('#datetimepicker12').datepicker({
+      $('#datepicker').datepicker({
         date: dueDate,
         inline: true,
         sideBySide: true,
         todayHighlight: true,
         format: 'yyyy-mm-dd'
       }).on('changeDate', function(e){
-        $('#datetime').val(e.format('yyyy-mm-dd'))
+        $('#due_date_field').val(e.format('yyyy-mm-dd'))
       });
-    $("#datetimepicker12").datepicker("setDate", dueDate);
+    $("#datepicker").datepicker("setDate", dueDate);
   });
 
   $(document).on('click', '#clearpicker', function() {
-    $("#datetime").val('');
-    $("#datetimepicker12").datepicker("clearDates");
+    $("#due_date_field").val('');
+    $("#datepicker").datepicker("clearDates");
   });
 </script>

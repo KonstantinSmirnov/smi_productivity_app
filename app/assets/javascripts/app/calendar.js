@@ -1,4 +1,4 @@
-// MY CALENDAR
+// MY CALENDAR datepicker
 
   function showCalendar(element) {
     var offset = element.offset();
