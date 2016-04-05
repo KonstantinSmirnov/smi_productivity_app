@@ -389,13 +389,25 @@ body.nav-md .container.body .right_col {
   float: left;
 }
 .task-options {
-  width: 30px;
+  width: 90px;
   text-align: center;
   font-size: 20px;
 }
+.task-options .due-to {
+  border: 1px solid #73879c;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 0.8em;
+  padding: 2px;
+}
+.task-options .due-to:hover {
+  background-color: #33b3ff;
+  color: #ccc;
+  border-color: #ccc;
+}
 .task-body {
   font-size: 15px;
-  width: calc(100% - 75px);
+  width: calc(100% - 135px);
 }
 .task-body p {
   padding: 0;
@@ -403,7 +415,7 @@ body.nav-md .container.body .right_col {
 }
 .task-checkbox, .task-options, .task-body {
   display: inline-block;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 30px;
   position: relative;
   float: left;
@@ -444,8 +456,10 @@ body.nav-md .container.body .right_col {
   color: #999;
 }
 .tasks .task-content.done .task-body p,
-.tasks .task-content.done .task-options {
+.tasks .task-content.done .task-options,
+.tasks .task-content.done .task-options .due-to {
   color: #c4cfda;
+  border-color: #c4cfda;
 }
 .task-options .dropdown-menu {
   z-index: 3000;

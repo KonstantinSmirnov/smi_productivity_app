@@ -13,10 +13,22 @@
   <% end %>
   <% if @current_project.active? %>
     <div class="task-options pull-right">
-      <i class="fa fa-ellipsis-h" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
+      <div class="pull-right">
+        <i class="fa fa-pencil" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
+      </div>
+      <div class="pull-right">
+        <%= link_to app_project_edit_task_due_date_path(@current_project, object), remote: true do %>
+          <% if !object.due_date or object.due_date.to_s.empty? %>
+            <i class="due-to fa fa-calendar"></i>
+          <% else %>
+            <i class="due-to"><%= object.due_date.strftime("%b %-d") %></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
+
 
 
 <!-- Tasks modal -->

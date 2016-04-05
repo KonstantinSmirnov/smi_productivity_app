@@ -54,3 +54,9 @@ gem 'sorcery', '~> 0.9'
 
 # Users avatars and files
 gem 'paperclip', '~> 4.3.5'
+
+# turbolinks jquery js updates after refreshing. Install this to avoid this
+gem 'jquery-turbolinks'
+
+gem 'bootstrap-datepicker-rails'
+

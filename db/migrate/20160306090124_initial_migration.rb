@@ -27,6 +27,7 @@ class InitialMigration < ActiveRecord::Migration
     create_table :tasks do |t|
       t.integer :project_id
       t.string :title
+      t.date :due_date
       t.boolean :done?, default: false
       t.string :description
 

@@ -86,6 +86,30 @@ class App::TasksController < AppController
     end
   end
 
+  def edit_due_date
+    @task = Task.find(params[:id])
+    @current_project = Project.find(params[:project_id])
+
+    respond_to do |format|
+      format.js { render 'show_due_date_calendar', :object => @task }
+    end
+  end
+
+  def update_due_date
+    @current_project = Project.find(params[:project_id])
+    @task = Task.find(params[:id])
+
+    respond_to do |format|
+      if @task.update_attributes(task_params)
+        @alert = {:type => 'success', :message => 'Task due date has been updated.'}
+        format.js { render 'update_task' }
+      else
+        @alert = {:type => 'danger', :message => 'Task due_date was not updated.'}
+        format.js { render 'app/shared/render_alert' }
+      end
+    end
+  end
+
   def destroy
     @current_project = Project.find(params[:project_id])
     @task = Task.find(params[:id])
@@ -104,7 +128,7 @@ class App::TasksController < AppController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :due_date)
   end
 
   def has_access?
