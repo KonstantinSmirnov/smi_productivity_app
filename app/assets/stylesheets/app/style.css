@@ -393,17 +393,26 @@ body.nav-md .container.body .right_col {
   text-align: center;
   font-size: 20px;
 }
+.task-options .edit {
+  display: none;
+}
+.task-options .edit:hover {
+  color: #33b3ff;
+}
+.task-options:hover .edit {
+  display: block;
+}
 .task-options .due-to {
   border: 1px solid #73879c;
   border-radius: 4px;
-  margin-right: 5px;
+  margin-left: 5px;
   font-size: 0.8em;
-  padding: 2px;
+  padding: 2px 4px;
 }
 .task-options .due-to:hover {
   background-color: #33b3ff;
-  color: #ccc;
-  border-color: #ccc;
+  color: #fff;
+  border-color: #33b3ff;
 }
 .task-body {
   font-size: 15px;
@@ -443,6 +452,22 @@ body.nav-md .container.body .right_col {
   margin: 3px;
 }
 
+
+.task .task-options .due-to.overdue {
+  border-color: #FE6860;
+  background-color: #FE6860;
+}
+.task .task-options .due-to.today {
+  border-color: #4CD4B0;
+  background-color: #4CD4B0;
+}
+
+.tasks .task-content.done .task-body p,
+.tasks .task-content.done .task-options,
+.tasks .task-content.done .task-options .due-to {
+  color: #c4cfda;
+  border-color: #c4cfda;
+}
 .task-content:hover {
   background-color: #c1e8ff;
   cursor: pointer;
@@ -452,22 +477,16 @@ body.nav-md .container.body .right_col {
   box-shadow: inset 0 0 0 4px #fff;
   background-color: #c4cfda;
 }
-.task-options:hover i {
-  color: #999;
+.task.active .task-content {
+  background-color: #c1e8ff;
 }
-.tasks .task-content.done .task-body p,
-.tasks .task-content.done .task-options,
-.tasks .task-content.done .task-options .due-to {
-  color: #c4cfda;
-  border-color: #c4cfda;
-}
+
 .task-options .dropdown-menu {
   z-index: 3000;
   position: absolute;
 }
-.task.active .task-content {
-  background-color: #c1e8ff;
-}
+
+
 
 .tasks.doubled {
   max-width: 100%;

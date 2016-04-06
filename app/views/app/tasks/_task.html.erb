@@ -14,16 +14,16 @@
   <% if @current_project.active? %>
     <div class="task-options pull-right">
       <div class="pull-right">
-        <i class="fa fa-pencil" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
-      </div>
-      <div class="pull-right">
         <%= link_to app_project_edit_task_due_date_path(@current_project, object), remote: true do %>
           <% if !object.due_date or object.due_date.to_s.empty? %>
             <i class="due-to popup fa fa-calendar"></i>
           <% else %>
-            <i class="due-to popup"><%= object.due_date.strftime("%b %-d") %></i>
+            <i class="due-to popup <%= 'overdue' if object.due_date < Date.today %> <%= 'today' if object.due_date == Date.today %>"><%= object.due_date.strftime("%b %-d") %></i>
           <% end %>
         <% end %>
+      </div>
+      <div class="edit pull-right">
+        <i class="fa fa-pencil" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
       </div>
     </div>
   <% else %>
