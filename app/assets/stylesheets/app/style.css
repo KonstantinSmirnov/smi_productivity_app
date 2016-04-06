@@ -414,6 +414,14 @@ body.nav-md .container.body .right_col {
   color: #fff;
   border-color: #33b3ff;
 }
+.task-options .due-to.overdue {
+  border-color: #FE6860;
+  background-color: #FE6860;
+}
+.task-options .due-to.today {
+  border-color: #4CD4B0;
+  background-color: #4CD4B0;
+}
 .task-body {
   font-size: 15px;
   width: calc(100% - 135px);
@@ -453,15 +461,6 @@ body.nav-md .container.body .right_col {
 }
 
 
-.task .task-options .due-to.overdue {
-  border-color: #FE6860;
-  background-color: #FE6860;
-}
-.task .task-options .due-to.today {
-  border-color: #4CD4B0;
-  background-color: #4CD4B0;
-}
-
 .tasks .task-content.done .task-body p,
 .tasks .task-content.done .task-options,
 .tasks .task-content.done .task-options .due-to {
@@ -469,7 +468,7 @@ body.nav-md .container.body .right_col {
   border-color: #c4cfda;
 }
 .task-content:hover {
-  background-color: #c1e8ff;
+  background-color: #E5F4FF;
   cursor: pointer;
 }
 .task-checkbox div.circle-empty:hover {
