@@ -11,7 +11,7 @@
       });
     };
 
-  $(document).on('click', '.due-to', function() {
+  $(document).on('click', '.due-to.popup', function() {
     showCalendar($(this));
   });
 

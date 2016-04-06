@@ -19,11 +19,21 @@
       <div class="pull-right">
         <%= link_to app_project_edit_task_due_date_path(@current_project, object), remote: true do %>
           <% if !object.due_date or object.due_date.to_s.empty? %>
+            <i class="due-to popup fa fa-calendar"></i>
+          <% else %>
+            <i class="due-to popup"><%= object.due_date.strftime("%b %-d") %></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="task-options pull-right">
+      <div class="pull-right">
+          <% if !object.due_date or object.due_date.to_s.empty? %>
             <i class="due-to fa fa-calendar"></i>
           <% else %>
             <i class="due-to"><%= object.due_date.strftime("%b %-d") %></i>
           <% end %>
-        <% end %>
       </div>
     </div>
   <% end %>
