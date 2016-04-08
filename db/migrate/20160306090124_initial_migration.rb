@@ -41,5 +41,14 @@ class InitialMigration < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    create_table :updates do |t|
+      t.integer :project_id
+      t.integer :user_id
+      t.integer :status
+      t.string :text
+      
+      t.timestamps
+    end
   end
 end

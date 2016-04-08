@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.datetime "updated_at"
   end
 
+  create_table "updates", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",               null: false
     t.string   "crypted_password"

@@ -10,7 +10,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <% if @current_project.active? %>
-              <%= form_tag app_project_tasks_path, method: :post, remote: true do |f| %>
+              <%= form_tag app_project_tasks_path, method: :post, remote: true do %>
                 <div class="input-group">
                   <%= text_field_tag :title, nil, class: 'form-control', id: 'new-task-field', autocomplete: :off %>
                   <span class="input-group-btn">
