@@ -408,20 +408,26 @@ body.nav-md .container.body .right_col {
   border-radius: 4px;
   margin-left: 5px;
   font-size: 0.8em;
-  padding: 2px 4px;
+  padding: 2px 6px;
+  color: #3a87ad;
+  border-color: #bce8f1;
 }
 .task-options .due-to:hover {
-  background-color: #33b3ff;
-  color: #fff;
-  border-color: #33b3ff;
+  color: #73879c;
 }
 .task-options .due-to.overdue {
-  border-color: #FE6860;
-  background-color: #FE6860;
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
 }
 .task-options .due-to.today {
-  border-color: #4CD4B0;
-  background-color: #4CD4B0;
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+}
+.task-options .due-to.overdue:hover,
+.task-options .due-to.today:hover {
+  color: #73879c;
 }
 .task-body {
   font-size: 15px;
