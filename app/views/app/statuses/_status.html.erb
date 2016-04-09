@@ -1,4 +1,4 @@
-<div class="panel 
+<div class="panel
   <%= 'panel-danger' if object.red? %>
   <%= 'panel-warning' if object.yellow? %>
   <%= 'panel-success' if object.green? %>
@@ -10,8 +10,8 @@
         <% if (Time.now - object.created_at) < 600 %>
           <div class="options pull-right">
             <%= distance_of_time_in_words(object.created_at - Time.now + 600) %> left to
-            <%= link_to 'Edit', edit_app_project_update_path(@current_project, object), remote: true %>
-            <%= link_to 'Delete', app_project_update_path(@current_project, object), method: :delete, :data => {:confirm => 'Are you sure?'}, remote: true %>
+            <%= link_to 'Edit', edit_app_project_status_path(@current_project, object), remote: true %>
+            <%= link_to 'Delete', app_project_status_path(@current_project, object), method: :delete, :data => {:confirm => 'Are you sure?'}, remote: true %>
           </div>
         <% end %>
       <% end %>

@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   has_many :tasks, dependent: :destroy
-  has_many :updates, dependent: :destroy
+  has_many :statuses, dependent: :destroy
 
-  enum status: [:active, :archived]
+  enum condition: [:active, :archived]
 end

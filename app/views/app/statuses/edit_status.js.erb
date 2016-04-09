@@ -1,0 +1,1 @@
+$("#<%= 'status_' + @status.id.to_s %>").html("<%= j render :partial => 'edit_status', :locals => {:object => @status} %>").hide().fadeIn(300);

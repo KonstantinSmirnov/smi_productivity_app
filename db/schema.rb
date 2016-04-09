@@ -25,7 +25,16 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.integer  "user_id"
     t.string   "title"
     t.string   "description"
-    t.integer  "status",      default: 0
+    t.integer  "condition",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "color"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,15 +45,6 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.date     "due_date"
     t.boolean  "done?",       default: false
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "updates", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.integer  "status"
-    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

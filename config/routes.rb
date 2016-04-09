@@ -28,8 +28,8 @@ Rails.application.routes.draw do
       resources :tasks do
         resources :comments
       end
-      resources :updates, except: [:new]
-      get 'updates/:id/cancel_edit' => 'updates#cancel_edit', as: 'cancel_update_edit'
+      resources :statuses, except: [:new]
+      get 'statuses/:id/cancel_edit' => 'statuses#cancel_edit', as: 'cancel_status_edit'
     end
 
     # User profile

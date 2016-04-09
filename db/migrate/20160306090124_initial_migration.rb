@@ -19,7 +19,7 @@ class InitialMigration < ActiveRecord::Migration
       t.integer :user_id
       t.string :title
       t.string :description
-      t.integer :status, default: 0
+      t.integer :condition, default: 0
 
       t.timestamps
     end
@@ -41,13 +41,13 @@ class InitialMigration < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    create_table :updates do |t|
+
+    create_table :statuses do |t|
       t.integer :project_id
       t.integer :user_id
-      t.integer :status
+      t.integer :color
       t.string :text
-      
+
       t.timestamps
     end
   end

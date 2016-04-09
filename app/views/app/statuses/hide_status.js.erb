@@ -1,2 +1,2 @@
-$("#<%= 'update_' + @update.id.to_s %>").fadeOut(300);
+$("#<%= 'status_' + @status.id.to_s %>").fadeOut(300);
 $("#alerts").append($("<%= escape_javascript(render :partial => 'app/shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(100).delay(8000).slideUp(500));

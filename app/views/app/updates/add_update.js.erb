@@ -1,2 +1,0 @@
-$("#status-text-area").val('');
-$("#updates-list").prepend($("<div class='update' id=<%= 'update_' + @update.id.to_s %> ><%= escape_javascript(render :partial => 'update', :locals => {:object => @update}) %></div>").hide().fadeIn(300));
