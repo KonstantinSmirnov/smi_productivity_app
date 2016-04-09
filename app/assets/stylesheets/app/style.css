@@ -40,7 +40,8 @@ a:focus {
 
 /* Alerts */
 #alerts {
-  position: absolute;
+  position: fixed;
+  display: block;
   bottom: 0px;
   left: 0px;
   z-index: 1000;
