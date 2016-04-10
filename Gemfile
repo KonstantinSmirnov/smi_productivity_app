@@ -60,3 +60,6 @@ gem 'jquery-turbolinks'
 
 gem 'bootstrap-datepicker-rails'
 
+#for Heroku
+gem 'rails_12factor'
+
