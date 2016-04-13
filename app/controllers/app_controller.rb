@@ -8,6 +8,8 @@ class AppController < ApplicationController
   private
 
   def get_projects
+    @current_workspace = current_user.workspace
+    @workspaces_list = current_user.workspaces - [@current_workspace]
     @projects = current_user.projects
   end
 end

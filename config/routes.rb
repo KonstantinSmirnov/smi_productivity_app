@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     # Calendar
     get 'user_calendar' => 'user_calendar#index'
 
+    resources :workspaces
+
     # Projects
     resources :projects, except: [:show] do
       patch 'archive' => 'projects#archive', as: 'archive'

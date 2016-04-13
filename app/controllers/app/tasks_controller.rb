@@ -1,5 +1,4 @@
 class App::TasksController < AppController
-  before_action :has_access?
 
   def index
     @current_project = Project.find(params[:project_id])
@@ -131,17 +130,5 @@ class App::TasksController < AppController
     params.require(:task).permit(:title, :description, :due_date)
   end
 
-  def has_access?
-    if Project.exists?(params[:project_id])
-      @current_project = Project.find(params[:project_id])
-      if current_user.id != @current_project.user_id
-        flash[:danger] = "You have no access to this project"
-        redirect_to app_dashboard_path
-      end
-    else
-      flash[:danger] = "Project does not exist."
-      redirect_to app_dashboard_url
-    end
-  end
 end
 

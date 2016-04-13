@@ -9,19 +9,36 @@ class InitialMigration < ActiveRecord::Migration
       t.string :name
       t.string :title
       t.attachment :avatar
+      #Shows current selected organisation
+      t.integer :workspace_id
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :users, :email, unique: true
 
+    create_table :workspaces do |t|
+      t.string :title
+
+      t.timestamps null: false
+    end
+
+    create_table :users_workspaces do |t|
+      t.integer :user_id
+      t.integer :workspace_id
+      t.integer :role, default: 0
+
+      t.timestamps null: false
+    end
+
     create_table :projects do |t|
       t.integer :user_id
+      t.integer :workspace_id
       t.string :title
       t.string :description
       t.integer :condition, default: 0
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     create_table :tasks do |t|
@@ -31,7 +48,7 @@ class InitialMigration < ActiveRecord::Migration
       t.boolean :done?, default: false
       t.string :description
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     create_table :comments do |t|
@@ -39,7 +56,7 @@ class InitialMigration < ActiveRecord::Migration
       t.integer :user_id
       t.string :text
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     create_table :statuses do |t|
@@ -48,7 +65,7 @@ class InitialMigration < ActiveRecord::Migration
       t.integer :color
       t.string :text
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

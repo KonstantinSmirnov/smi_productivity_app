@@ -4,6 +4,12 @@ class SessionsController < ApplicationController
     respond_to do |format|
       @user = User.new(user_params)
       if @user.save
+        @workspace = Workspace.new(title: "#{@user.name}'s workspace")
+        if @workspace.save
+          @user.workspaces << @workspace
+          @user.workspace = @workspace
+          @user.update_attributes(user_params)
+        end
         flash.now[:success] = 'Welcome! Please check activation letter in your email box.'
         format.js { render 'signup_message' }
       else
@@ -33,6 +39,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :workspace_id)
   end
 end

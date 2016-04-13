@@ -1,8 +1,10 @@
 class App::ProjectsController < AppController
 
   def create
-    @user = User.find(current_user)
-    @project = @user.projects.build(title: params[:title], description: params[:description])
+    #@user = User.find(current_user)
+    #@project = @user.projects.build(title: params[:title], description: params[:description])
+    @current_workspace = current_user.workspace
+    @project = @current_workspace.projects.build(title: params[:title], description: params[:description])
 
     respond_to do |format|
       if @project.save
@@ -36,8 +38,7 @@ class App::ProjectsController < AppController
   def destroy
     if User.authenticate(current_user.email, params[:project][:password])
       @current_project = Project.find(params[:id])
-      if current_user.id == @current_project.user_id
-        @current_project.destroy
+      if @current_project.destroy
         flash[:success] = "Project has been successfully destroyed"
         render js: "window.location='#{app_dashboard_path}'"
       else

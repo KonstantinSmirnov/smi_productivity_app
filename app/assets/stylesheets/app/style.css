@@ -161,6 +161,7 @@ a:focus {
 .top_nav .dropdown-menu li a {
   width: 100%;
   padding: 12px 20px;
+  line-height: 1em;
 }
 .top_nav li a i {
   font-size: 15px;
@@ -172,7 +173,7 @@ a:focus {
 a.user-profile {
   color: #5e6974;
 }
-.navbar-nav > li.open > a.user-profile {
+.navbar-nav > li.open > a.dropdown-toggle {
   color: #5e6974 !important;
 }
 .user-profile img {
@@ -185,6 +186,12 @@ a.user-profile {
 .user-profile-big {
   border-radius: 50%;
   border: 1px solid #d9dee4;
+}
+.workspaces-list .dropdown-menu li.controls {
+  display: block;
+}
+.workspaces-list .dropdown-menu li.controls a {
+  line-height: 0.5em;
 }
 
 /* Sidebar navigation md */

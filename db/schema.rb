@@ -17,17 +17,18 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.integer  "task_id"
     t.integer  "user_id"
     t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "workspace_id"
     t.string   "title"
     t.string   "description"
-    t.integer  "condition",   default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "condition",    default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -35,8 +36,8 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.integer  "user_id"
     t.integer  "color"
     t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -45,8 +46,8 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.date     "due_date"
     t.boolean  "done?",       default: false
     t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,10 +60,25 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "workspace_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "users_workspaces", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "workspace_id"
+    t.integer  "role",         default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "workspaces", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
