@@ -12,8 +12,19 @@
               <div class="form-group">
                 <div class="col-xs-9">
                   <h5><%= link_to "#{w.title}", app_workspace_path(w) %></h5>
-                  <hr>
                 </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-xs-6 col-xs-offset-3">
+            <h3 class="text-center">Or create new</h3>
+            <%= form_tag app_workspaces_path, method: :post do |f| %>
+              <div class="form-group">
+                <%= label_tag :title %>
+                <%= text_field_tag :title, nil, class: 'form-control', autocomplete: :off %>
+              </div>
+              <div class="text-center">
+                <%= submit_tag 'Create', class: 'btn btn-primary' %>
               </div>
             <% end %>
           </div>
@@ -24,11 +35,12 @@
 
 <% else %>
   <h3>This is a '<%= @current_workspace.title %>' dashboard</h3>
-  # Should be added in a separate controller Workspace::Colleagues
   <br>
+  <h3>There are <%= @current_workspace.users.count %> users in this workspace:</h3>
   <% @current_workspace.users.each do |u| %>
     <%= u.name %>
   <% end %>
+  <h3>There are <%= @current_workspace.projects.count %> projects in this workspace.</h3>
 <% end %>
 
 

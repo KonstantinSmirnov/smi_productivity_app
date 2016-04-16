@@ -32,7 +32,6 @@ class InitialMigration < ActiveRecord::Migration
     end
 
     create_table :projects do |t|
-      t.integer :user_id
       t.integer :workspace_id
       t.string :title
       t.string :description

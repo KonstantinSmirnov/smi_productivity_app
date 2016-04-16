@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20160306090124) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "workspace_id"
     t.string   "title"
     t.string   "description"

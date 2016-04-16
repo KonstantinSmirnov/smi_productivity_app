@@ -30,15 +30,15 @@
       <div class="modal-body">
         <div id="delete_message" class="text-center"></div>
         <div class="">
-        <%= form_tag app_workspaces_path, method: :post do |f| %>
-          <div class="form-group">
-            <%= label_tag :title %>
-            <%= text_field_tag :title, nil, class: 'form-control', autocomplete: :off %>
-          </div>
-          <div class="text-center">
-            <%= submit_tag 'Create', class: 'btn btn-primary' %>
-          </div>
-        <% end %>
+          <%= form_tag app_workspaces_path, method: :post do |f| %>
+            <div class="form-group">
+              <%= label_tag :title %>
+              <%= text_field_tag :title, nil, class: 'form-control', autocomplete: :off %>
+            </div>
+            <div class="text-center">
+              <%= submit_tag 'Create', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div><!-- /.modal-content -->

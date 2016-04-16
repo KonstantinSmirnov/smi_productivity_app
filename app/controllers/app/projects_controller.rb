@@ -56,7 +56,6 @@ class App::ProjectsController < AppController
   def archive
     if User.authenticate(current_user.email, params[:project][:password])
       @current_project = Project.find(params[:project_id])
-      if current_user.id == @current_project.user_id
         if @current_project.active?
           @current_project.archived!
         else
@@ -64,10 +63,6 @@ class App::ProjectsController < AppController
         end
         flash[:success] = "Project has been successfully archived/unarchived"
         render js: "window.location='#{app_project_tasks_path(@current_project)}'"
-      else
-        flash.now[:danger] = "This is not your project, it can not be deleted."
-        format.html { root_path }
-      end
     else
       respond_to do |format|
         flash.now[:danger] = "You entered an incorrect password"
