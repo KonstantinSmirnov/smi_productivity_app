@@ -5,20 +5,20 @@
     <% else %>
       <h3>General</h3>
       <ul class="nav side-menu">
-        <li class=<%= "active" if controller?('app/dashboard') %>>
-          <%= link_to app_dashboard_path do %>
+        <li class=<%= "active" if controller?('app/workspaces/dashboard') %>>
+          <%= link_to app_workspace_dashboard_path(@current_workspace) do %>
             <i class="fa fa-dashboard"></i> Dashboard
           <% end %>
         </li>
-        <li class=<%= "active" if controller?('app/user_calendar') %>>
-          <%= link_to app_user_calendar_path do %>
+        <li class=<%= "active" if controller?('app/workspaces/calendar') %>>
+          <%= link_to app_workspace_calendar_path(@current_workspace) do %>
             <i class="fa fa-calendar"></i> My Calendar
           <% end %>
         </li>
-        <li>
-          <a>
-            <i class="fa fa-user"></i> Workspace colleagues
-          </a>
+        <li class=<%= "active" if controller?('app/workspaces/colleagues') %>>
+          <%= link_to app_workspace_colleagues_path(@current_workspace) do %>
+            <i class="fa fa-users"></i> Workspace colleagues
+          <% end %>
         </li>
         <hr>
       </ul>

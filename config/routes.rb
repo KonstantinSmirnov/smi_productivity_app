@@ -11,12 +11,15 @@ Rails.application.routes.draw do
 
   namespace :app do
     # Dashboard
-    get 'dashboard' => 'dashboard#index'
 
     # Calendar
-    get 'user_calendar' => 'user_calendar#index'
 
-    resources :workspaces
+    resources :workspaces do
+      resources :colleagues, :controller => "workspaces/colleagues"
+      get 'dashboard' => 'workspaces/dashboard#index'
+      get 'calendar' => 'workspaces/calendar#index'
+    end
+
 
     # Projects
     resources :projects, except: [:show] do

@@ -12,7 +12,7 @@ class App::WorkspacesController < AppController
       else
         flash[:danger] = "New workspace has not been created"
       end
-      redirect_to app_dashboard_path
+      redirect_to app_workspace_dashboard_path(current_user.workspace)
     end
   end
 
@@ -26,7 +26,7 @@ class App::WorkspacesController < AppController
     else
       flash[:danger] = "New workspace has not been selected"
     end
-    redirect_to app_dashboard_path
+    redirect_to app_workspace_dashboard_path(current_user.workspace)
   end
 
   def edit
@@ -51,7 +51,7 @@ class App::WorkspacesController < AppController
     @workspace = Workspace.find(params[:id])
     if @workspace.destroy
       flash[:success] = "Workspace has been deleted"
-      redirect_to app_dashboard_path
+      redirect_to app_workspace_dashboard_path(current_user.workspace)
     else
       flash.now[:danger] = "Workspace has not been deleted"
       render 'edit'

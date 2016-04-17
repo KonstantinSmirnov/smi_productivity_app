@@ -3,5 +3,4 @@ class UserWorkspace < ActiveRecord::Base
   belongs_to :workspace
 
   enum role: [:user, :admin]
-
 end
