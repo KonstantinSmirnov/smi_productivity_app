@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def sign_in
       if login(params[:email], params[:password])
         flash[:success] = "Welcome back!"
-        render js: "window.location='#{app_dashboard_path}'"
+        render js: "window.location='#{workspace_dashboard_path(current_user.workspace)}'"
       else
         respond_to do |format|
           flash.now[:warning] = 'Email and/or password is incorrect.'

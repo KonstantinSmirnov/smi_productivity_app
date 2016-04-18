@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="project-heading">
+      <h3 class="text-center">
+        <%= @current_project.title %>
+        <% if @current_project.archived? %>
+          <small><i>(archived)</i></small>
+        <% end %>
+      </h3>
+    </div>
+    <div class="project-settings">
+      <h3>
+        <% if action?('edit') || action?('update') %>
+          <%= link_to project_tasks_path(@current_project) do %>
+            <i class="fa fa-undo pull-right"></i>
+          <% end %>
+        <% else %>
+          <%= link_to edit_project_path(@current_project) do %>
+            <i class="fa fa-cog pull-right"></i>
+          <% end %>
+          <% if !@current_project.description or @current_project.description.empty? %>
+          <% else %>
+            <a><i class="fa fa-question-circle pull-right" data-toggle="modal" data-target="#project_description_modal"></i></a>
+          <% end %>
+        <% end %>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<!-- Project info modal -->
+<div class="modal fade" id="project_description_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">Project description</h4>
+      </div>
+      <div class="modal-body">
+        <p><%=@current_project.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+

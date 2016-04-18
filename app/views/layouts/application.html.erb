@@ -17,7 +17,7 @@
       <div class="col-sm-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title">
-            <%= link_to app_workspace_dashboard_path(@current_workspace), class: 'site_title' do %>
+            <%= link_to workspace_dashboard_path(@current_workspace), class: 'site_title' do %>
               <i class="fa fa-check-square-o"></i> <span>Todo App</span>
             <% end %>
           </div>
@@ -25,13 +25,13 @@
           <div class="clearfix"></div>
 
           <!-- sidebar menu -->
-          <%= render 'app/shared/sidebar_menu' %>
+          <%= render 'shared/sidebar_menu' %>
           <!-- end sidebar menu -->
         </div>
       </div>
 
       <!-- top navigation -->
-      <%= render 'app/shared/top_navigation' %>
+      <%= render 'shared/top_navigation' %>
 
       <!-- page content -->
       <div class="right_col" role="main">
@@ -46,7 +46,7 @@
         <%= yield %>
       </div>
       <!-- footer content -->
-      <%= render 'app/shared/footer' %>
+      <%= render 'shared/footer' %>
       <!-- /footer content -->
     <!-- /page content -->
 

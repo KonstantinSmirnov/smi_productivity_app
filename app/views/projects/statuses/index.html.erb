@@ -1,0 +1,37 @@
+<%= render 'projects/project_header' %>
+<div class=" custom-tabs">
+  <%= render 'projects/project_navtabs' %>
+</div>
+
+<div class="row content_padding">
+  <div class="col-lg-offset-2 col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <% if @current_project.active? %>
+          <div class="comment-form">
+            <%= form_tag project_statuses_path, method: :post, remote: true do %>
+              <div class="form-group">
+                <%= text_area_tag :text, nil, id: 'status-text-area', class: 'form-control expand', rows: 3, placeholder: 'What is the current status for this project?', autocomplete: :off %>
+              </div>
+              <div class="controls">
+                <div class="pull-left">
+                  Status: <%= select_tag :color, options_for_select(Status.colors.keys.to_a) %>
+                </div>
+                <%= submit_tag 'Add', class: 'btn btn-default btn-sm' %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <br>
+        <div id="statuses-list">
+          <% @statuses.each do |u| %>
+            <div class="status" id="<%= 'status_' + u.id.to_s %>">
+              <%= render :partial => 'app/statuses/status', :locals => { :object => u } %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

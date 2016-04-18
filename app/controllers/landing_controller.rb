@@ -3,7 +3,9 @@ class LandingController < ApplicationController
 
   def index
     @user = User.new
-    @current_workspace = current_user.workspace
+    if current_user
+      @current_workspace = current_user.workspace
+    end
   end
 
 end

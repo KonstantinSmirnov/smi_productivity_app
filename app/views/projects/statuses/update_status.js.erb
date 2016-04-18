@@ -1,0 +1,4 @@
+$("#<%= 'status_' + @status.id.to_s %>").html("<%= j render :partial => 'status', :locals => {:object => @status} %>").hide().fadeIn(300);
+<% if @alert %>
+  $("#alerts").append($("<%= escape_javascript(render :partial => 'shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(100).delay(8000).slideUp(500));
+<% end %>

@@ -1,0 +1,73 @@
+<div class="<%= object.done? ? "task-content done" : "task-content" %>">
+  <div class="task-checkbox">
+    <% if @current_project.active? %>
+      <%= link_to project_update_task_status_path(@current_project, object.id), method: :patch, remote: true do %>
+        <div class="<%= object.done? ? "circle-filled" : "circle-empty" %>"></div>
+      <% end %>
+    <% else %>
+      <div class="<%= object.done? ? "circle-filled" : "circle-empty" %>"></div>
+    <% end %>
+  </div>
+  <%= link_to project_get_task_details_path(@current_project, object.id), class: 'task-body', remote: true do %>
+    <p><%= object.title %></p>
+  <% end %>
+  <% if @current_project.active? %>
+    <div class="task-options pull-right">
+      <div class="pull-right">
+        <%= link_to project_edit_task_due_date_path(@current_project, object), remote: true do %>
+          <% if !object.due_date or object.due_date.to_s.empty? %>
+            <i class="due-to popup fa fa-calendar"></i>
+          <% else %>
+            <i class="due-to popup <%= 'overdue' if object.due_date < Date.today %> <%= 'today' if object.due_date == Date.today %>"><%= object.due_date.strftime("%b %-d") %></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="edit pull-right">
+        <i class="fa fa-pencil" data-toggle="modal" data-target="<%= '#task_modal_' + object.id.to_s %>"></i>
+      </div>
+    </div>
+  <% else %>
+    <div class="task-options pull-right">
+      <div class="pull-right">
+          <% if !object.due_date or object.due_date.to_s.empty? %>
+            <i class="due-to fa fa-calendar"></i>
+          <% else %>
+            <i class="due-to"><%= object.due_date.strftime("%b %-d") %></i>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<!-- Tasks modal -->
+
+<div class="modal fade" id="<%= 'task_modal_' + object.id.to_s %>" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">Task details</h4>
+      </div>
+      <div class="modal-body">
+        <div id="<%= 'update_task_' + object.id.to_s + '_message' %>"></div>
+        <%= form_for [@current_project, object], method: :patch, remote: true do |f| %>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control', autocomplete: :off %>
+          </div>
+          <div class="text-center">
+            <%= f.submit 'Update', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+        <hr>
+        <h5>Remove task:</h5>
+        <div id="<%= 'delete_task_' + object.id.to_s + '_message' %>"></div>
+        <div class="text-center">
+          <%= link_to "Delete", project_task_path(@current_project, object), method: :delete, remote: true, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

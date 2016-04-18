@@ -1,0 +1,11 @@
+<div class="comment-form">
+  <%= form_for [@current_project, @task, object], method: :patch, remote: true do |f| %>
+    <div class="form-group">
+      <%= f.text_area :text, class: 'form-control', rows: 3, placeholder: 'Add a comment', autocomplete: :off %>
+    </div>
+    <div class="controls">
+      <%= f.submit 'Update', class: 'btn btn-default btn-sm', remote: true %>
+      <%= link_to 'Cancel', project_cancel_comment_edit_path(@current_project, object), class: 'btn btn-default btn-sm', remote: true %>
+    </div>
+  <% end %>
+</div>

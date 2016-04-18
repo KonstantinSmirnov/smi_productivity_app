@@ -1,4 +1,0 @@
-$("#<%= 'comment_' + @comment.id.to_s %>").html("<%= j render :partial => 'comment', :locals => {:object => @comment} %>").hide().fadeIn(300);
-<% if @alert %>
-  $("#alerts").append($("<%= escape_javascript(render :partial => 'app/shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(100).delay(8000).slideUp(500));
-<% end %>

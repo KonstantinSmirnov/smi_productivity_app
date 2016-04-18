@@ -1,5 +1,0 @@
-$('body').removeClass('modal-open');
-$('.modal-backdrop').remove();
-$("#calendarContainer").hide();
-$("#<%= 'task_' + @task.id.to_s %>").html("<%= escape_javascript(render :partial => 'task', :locals => {:object => @task}) %>");
-$("#alerts").append($("<%= escape_javascript(render :partial => 'app/shared/alert', :locals => {:object => @alert}) %>").hide().fadeIn(100).delay(8000).slideUp(500));
