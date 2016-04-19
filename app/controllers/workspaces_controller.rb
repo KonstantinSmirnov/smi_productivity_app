@@ -9,10 +9,11 @@ class WorkspacesController < AppController
       @user.workspaces << @workspace
       if @user.save
         flash[:success] = "New workspace has been created"
+        redirect_to workspace_dashboard_path(@user.workspace)
       else
-        flash[:danger] = "New workspace has not been created"
+        flash.now[:danger] = "Workspace can not be created"
+        render 'edit'
       end
-      redirect_to workspace_dashboard_path(current_user.workspace)
     end
   end
 
