@@ -68,7 +68,10 @@ gem 'bootstrap-datepicker-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 3.4.1'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'database_cleaner'
 end
 
