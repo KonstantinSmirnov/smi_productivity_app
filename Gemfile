@@ -64,3 +64,11 @@ gem 'jquery-turbolinks'
 
 gem 'bootstrap-datepicker-rails'
 
+# Testing
+group :development, :test do
+  gem 'rspec-rails', '~> 3.4.1'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
+
