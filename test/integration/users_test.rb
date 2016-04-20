@@ -2,8 +2,6 @@ require 'test_helper'
 
 class Users < Capybara::Rails::TestCase
 
-  DatabaseCleaner.clean
-
   scenario 'responds to root_path' do
     visit root_path
 
@@ -155,4 +153,7 @@ class Users < Capybara::Rails::TestCase
   end
 
   it "fails to log in if not activated"
+  
+  it "remove account with correct password"
+  it "fails to remove account with incorrect password "
 end

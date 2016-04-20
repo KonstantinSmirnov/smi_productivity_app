@@ -8,6 +8,8 @@ require 'database_cleaner'
 Capybara.javascript_driver = :webkit
 
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
+# include helpers
+Dir[Rails.root.join("test/helpers/**/*.rb")].each { |f| require f }
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
