@@ -36,7 +36,7 @@
             <form class="form-horizontal center">
               <div class="form-group">
                 <div class="col-xs-offset-3 col-xs-9">
-                  <a class="btn btn-danger" data-toggle="modal" data-target="#archive_project_modal">Archive project</a>
+                  <%= link_to "Archive project", '#', class: 'btn btn-danger', data: { toggle: 'modal', target: '#archive_project_modal' } %>
                 </div>
               </div>
             </form>
@@ -47,7 +47,7 @@
             <form class="form-horizontal center">
               <div class="form-group">
                 <div class="col-xs-offset-3 col-xs-9">
-                  <a class="btn btn-danger" data-toggle="modal" data-target="#archive_project_modal">Unarchive project</a>
+                  <%= link_to "Unarchive project", '#', class: 'btn btn-danger', data: { toggle: 'modal', target: '#archive_project_modal' } %>
                 </div>
               </div>
             </form>
@@ -59,7 +59,7 @@
           <form class="form-horizontal center">
             <div class="form-group">
               <div class="col-xs-offset-3 col-xs-9">
-                <a class="btn btn-danger" data-toggle="modal" data-target="#delete_project_modal">Delete project</a>
+                <%= link_to "Delete project", '#', class: 'btn btn-danger', data: { toggle: 'modal', target: '#delete_project_modal' } %>
               </div>
             </div>
           </form>
