@@ -27,7 +27,7 @@
         <div id="statuses-list">
           <% @statuses.each do |u| %>
             <div class="status" id="<%= 'status_' + u.id.to_s %>">
-              <%= render :partial => 'app/statuses/status', :locals => { :object => u } %>
+              <%= render :partial => 'projects/statuses/status', :locals => { :object => u } %>
             </div>
           <% end %>
         </div>
