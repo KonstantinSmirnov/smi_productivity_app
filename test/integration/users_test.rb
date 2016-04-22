@@ -152,8 +152,8 @@ class Users < Capybara::Rails::TestCase
     assert page.has_text?('Welcome back!')
   end
 
-  it "fails to log in if not activated"
-  
-  it "remove account with correct password"
-  it "fails to remove account with incorrect password "
+  # it "fails to log in if not activated"
+
+  # it "remove account with correct password"
+  # it "fails to remove account with incorrect password "
 end

@@ -79,4 +79,8 @@ class Statuses < Capybara::Rails::TestCase
   end
 
   # it "can cancel editing status"
+
+  # it "fails to add status in archived project"
+  # it "fails to edit status in archived project"
+  # it "fails to delete status in archived project"
 end

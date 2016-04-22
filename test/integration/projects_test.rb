@@ -108,4 +108,6 @@ class Projects < Capybara::Rails::TestCase
     assert page.has_text?('Your password is wrong. Please use correct password.')
   end
 
+  # it "can add project description"
+  # it "can update project description"
 end
