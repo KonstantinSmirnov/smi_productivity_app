@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :destroy #?
   has_many :comments, dependent: :destroy #?
 
-  has_and_belongs_to_many :workspaces
+  has_many :connections
+  has_many :workspaces, :through => :connections
   # Selected workspace
   belongs_to :workspace
+
 end

@@ -54,19 +54,19 @@
       <div class="modal-body">
         <div id="delete_message" class="text-center"></div>
         <div class="">
-        <%= form_tag projects_path, method: :post do |f| %>
-          <div class="form-group">
-            <%= label_tag :title %>
-            <%= text_field_tag :title, nil, class: 'form-control', autocomplete: :off %>
-          </div>
-          <div class="form-group">
-            <%= label_tag :description, "Description (optional)" %>
-            <%= text_area_tag :description, nil, class: 'form-control' %>
-          </div>
-          <div class="text-center">
-            <%= submit_tag 'Create', class: 'btn btn-primary' %>
-          </div>
-        <% end %>
+          <%= form_tag projects_path, method: :post do |f| %>
+            <div class="form-group">
+              <%= label_tag :title %>
+              <%= text_field_tag :title, nil, class: 'form-control', autocomplete: :off %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :description, "Description (optional)" %>
+              <%= text_area_tag :description, nil, class: 'form-control' %>
+            </div>
+            <div class="text-center">
+              <%= submit_tag 'Create', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div><!-- /.modal-content -->

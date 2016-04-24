@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
         if @workspace.save
           @user.workspaces << @workspace
           @user.workspace = @workspace
+          @user.connections.find_by_workspace_id(@workspace.id).admin!
           @user.update_attributes(user_params)
         end
         flash.now[:success] = 'Welcome! Please check activation letter in your email box.'

@@ -23,13 +23,14 @@ class InitialMigration < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :users_workspaces do |t|
+    create_table :connections do |t|
       t.integer :user_id
       t.integer :workspace_id
       t.integer :role, default: 0
 
       t.timestamps null: false
     end
+    add_index :connections, [:user_id, :workspace_id], unique: true
 
     create_table :projects do |t|
       t.integer :workspace_id

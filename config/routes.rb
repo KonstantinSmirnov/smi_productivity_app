@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :colleagues, :controller => "workspaces/colleagues"
     get 'dashboard' => 'workspaces/dashboard#index'
     get 'calendar' => 'workspaces/calendar#index'
+    patch 'add_user' => 'workspaces/colleagues#add_user', as: 'add_user'
+    delete 'remove_user/:id' => 'workspaces/colleagues#remove_user', as: 'remove_user'
   end
 
 

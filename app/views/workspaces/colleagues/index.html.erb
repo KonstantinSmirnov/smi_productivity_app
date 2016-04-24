@@ -1,14 +1,17 @@
 <div class="col-lg-12">
   <div class="clearfix">
-    <h3 class="pull-left">Users</h3>
-    <div class="pull-right">
-      <a href="#" class="btn btn-primary pull-right">
-        <i class="fa fa-plus-circle fa-lg">
-          Add user
-        </i>
-      </a>
+    <div class="col-lg-4 pull-right">
+      <%= form_tag workspace_add_user_path(@workspace), method: :patch, remote: true do |f| %>
+        <div class="input-group">
+          <%= email_field_tag :email, nil, class: 'form-control', autocomplete: :off %>
+          <span class="input-group-btn">
+            <%= submit_tag 'Add user', class: 'btn btn-default' %>
+          </span>
+        </div>
+      <% end %>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-lg-12">
       <div class="main-box clearfix">
@@ -17,7 +20,7 @@
             <thead>
               <tr>
                 <th><span>User</span></th>
-                <th><span>Created</span></th>
+                <th><span>Added</span></th>
                 <th class="text-center"><span>Workspace role</span></th>
                 <th><span>Email</span></th>
                 <th></th>
@@ -33,15 +36,17 @@
                   </td>
                   <td>2013/08/08</td>
                   <td class="text-center">
-                    <span class="label label-danger">Admin</span>
+                    <span class="label label-default"><%= u.connections.find_by_workspace_id(@workspace.id).role %></span>
                   </td>
                   <td>
                     <a href=""><%= u.email %></a>
                   </td>
                   <td>
-                    <a href="">
-                      Remove
-                    </a>
+                    <% if u != current_user %>
+                      <%= link_to 'Remove', workspace_remove_user_path(@workspace, u), method: :delete, remote: true, data: {confirm: "Are you sure?"} %>
+                    <% elsif %>
+                      Unfollow
+                    <% end %>
                   </td>
                 </tr>
               <% end %>

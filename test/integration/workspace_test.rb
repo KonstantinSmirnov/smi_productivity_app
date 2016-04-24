@@ -13,5 +13,7 @@ class Workspaces < Capybara::Rails::TestCase
   # it "can create a new workspace if all workspaces were removed"
   # it "can rename a workspace"
   # it "fails to rename a workspace with empty title"
+  # it "user is an admin in a default workspace"
+  # it "workspace admin can change its role"
 
 end

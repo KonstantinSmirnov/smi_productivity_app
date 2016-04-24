@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20160306090124) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "connections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "workspace_id"
+    t.integer  "role",         default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "connections", ["user_id", "workspace_id"], name: "index_connections_on_user_id_and_workspace_id", unique: true
+
   create_table "projects", force: :cascade do |t|
     t.integer  "workspace_id"
     t.string   "title"
@@ -65,14 +75,6 @@ ActiveRecord::Schema.define(version: 20160306090124) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-
-  create_table "users_workspaces", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "workspace_id"
-    t.integer  "role",         default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
 
   create_table "workspaces", force: :cascade do |t|
     t.string   "title"
