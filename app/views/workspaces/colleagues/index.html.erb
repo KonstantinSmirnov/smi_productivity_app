@@ -1,6 +1,54 @@
-There are my colleagues
-<ul>
-  <% @workspace.users.each do |u| %>
-    <li><%= u.name %></li>
-  <% end %>
-</ul>
+<div class="col-lg-12">
+  <div class="clearfix">
+    <h3 class="pull-left">Users</h3>
+    <div class="pull-right">
+      <a href="#" class="btn btn-primary pull-right">
+        <i class="fa fa-plus-circle fa-lg">
+          Add user
+        </i>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="main-box clearfix">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <thead>
+              <tr>
+                <th><span>User</span></th>
+                <th><span>Created</span></th>
+                <th class="text-center"><span>Workspace role</span></th>
+                <th><span>Email</span></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @workspace.users.each do |u| %>
+                <tr class="user-element">
+                  <td>
+                    <%= image_tag(u.avatar) %>
+                    <a href="#" class="user-link"><%= u.name %> <i><%= '(You)' if u == current_user %></i></a>
+                    <span class="user-subhead"><%= u.title %></span>
+                  </td>
+                  <td>2013/08/08</td>
+                  <td class="text-center">
+                    <span class="label label-danger">Admin</span>
+                  </td>
+                  <td>
+                    <a href=""><%= u.email %></a>
+                  </td>
+                  <td>
+                    <a href="">
+                      Remove
+                    </a>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

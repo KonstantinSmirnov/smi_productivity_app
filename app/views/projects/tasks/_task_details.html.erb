@@ -20,7 +20,7 @@
     <div id="comments-list">
       <% @task.comments.reverse.each do |c| %>
         <div class="comment" id="<%= "comment_" + c.id.to_s %>">
-          <%= render :partial => 'app/comments/comment', :locals => { :object => c } %>
+          <%= render :partial => 'projects/comments/comment', :locals => { :object => c } %>
         </div>
       <% end %>
     </div>
