@@ -13,6 +13,7 @@ class Workspaces::ColleaguesController < AppController
           format.js { render 'shared/render_alert' }
         else
           @workspace.users << @user
+          @user.connections.find_by_workspace_id(@workspace.id).pending!
           flash[:success] = "User has been added"
           format.js { render :js => "window.location.href='"+workspace_colleagues_path(@workspace)+"'" }
         end

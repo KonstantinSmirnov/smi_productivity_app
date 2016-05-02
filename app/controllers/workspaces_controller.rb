@@ -7,6 +7,7 @@ class WorkspacesController < AppController
       @user.skip_password = true
       @user.workspace = @workspace
       @user.workspaces << @workspace
+      @user.connections.find_by_workspace_id(@workspace.id).admin!
       if @user.save
         flash[:success] = "New workspace has been created"
         redirect_to workspace_dashboard_path(@user.workspace)
